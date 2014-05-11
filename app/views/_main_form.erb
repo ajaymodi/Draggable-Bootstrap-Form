@@ -17,32 +17,32 @@
   <!--[if lt IE 9]>
   <b class="text-error">All components may not work correctly on IE 8 or below </b><br/><br/>
   <![endif]-->
-  <legend>Simple form builder demo</legend>
+ <legend>Simple form builder demo</legend>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2 col-md-2" style="">
+    <div class="row-fluid">
+      <div class="span2" style="">
           
         <b>Input Fields</b><br>        
         <div class="selectorField draggableField">
-          <div class="textbox well well-mini well-xs"><b></b> Text</div>
+          <div class="textbox well well-mini"><b></b> Text</div>
           <div class="modele">
             <label class="control-label">Text</label>
-            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control">
-            <input type="hidden" class="hiddenObligatoire form-control">
+            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox ">
+            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
         <div class="selectorField draggableField">
-          <div class="password well well-mini well-xs"><b></b> Password</div>
+          <div class="password well well-mini"><b></b> Password</div>
           <div class="modele">
             <label class="control-label">Password</label>
-            <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control">
-            <input type="hidden" class="hiddenObligatoire form-control">
+            <input type="password" placeholder="Password ..." class="ctrl-passwordbox ">
+            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
         <div class="selectorField draggableField">
-          <div class="combobox well well-mini well-xs"><b></b>Combobox</div>
+          <div class="combobox well well-mini"><b></b>Combobox</div>
           <div class="modele">
             <label class="control-label">Combobox</label>
             <select class="ctrl-combobox">
@@ -50,12 +50,12 @@
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
             </select>
-            <input type="hidden" class="hiddenObligatoire form-control">
+            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
         <div class="selectorField draggableField">
-          <div class="radiogroup well well-mini well-xs"><b></b> Radio button</div>
+          <div class="radiogroup well well-mini"><b></b> Radio button</div>
           <div class="modele">
             <label class="control-label" style="vertical-align:top">Radio button</label>
             <div style="display:inline-block;" class="ctrl-radiogroup">
@@ -63,12 +63,12 @@
               <span style="display:block;"><input type="radio" name="radioField" value="option2">Option 2</span>
               <span style="display:block;"><input type="radio" name="radioField" value="option3">Option 3</span>
             </div>
-            <input type="hidden" class="hiddenObligatoire form-control">
+            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
         <div class="selectorField draggableField">
-          <div class="checkboxgroup well well-mini well-xs"><b></b> Checkbox</div>
+          <div class="checkboxgroup well well-mini"><b></b> Checkbox</div>
           <div class="modele">
             <label class="control-label" style="vertical-align:top">Checkbox</label>
             <div style="display:inline-block;" class="ctrl-checkboxgroup">
@@ -76,12 +76,12 @@
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option2">Option 2</span>
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option3">Option 3</span>
             </div>
-            <input type="hidden" class="hiddenObligatoire form-control">
+            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
         <div class="selectorField draggableField">
-          <div class="selectmultiple well well-mini well-xs"><b></b> Selection multiple</div>
+          <div class="selectmultiple well well-mini"><b></b> Selection multiple</div>
           <div class="modele">
             <label class="control-label" style="vertical-align:top">Selection multiple</label>
             <div style="display:inline-block;">
@@ -91,14 +91,14 @@
                 <option value="option3">Option 3</option>
               </select>
             </div>
-            <input type="hidden" class="hiddenObligatoire form-control">
+            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
 
         <b>Auto Fields</b><br>
         <div class="selectorField draggableField">
-          <div class="displaydate well well-mini well-xs"><b></b> Date</div>
+          <div class="displaydate well well-mini"><b></b> Date</div>
           <div class="modele">
             <label class="control-label">Date</label>
             <span class="ctrl-date">{DD/MM/YYYY}</span>
@@ -106,7 +106,7 @@
         </div>
 
         <div class="selectorField draggableField">
-          <div class="displaytext well well-mini well-xs"><b></b> Text</div>
+          <div class="displaytext well well-mini"><b></b> Text</div>
           <div class="modele">
             <label class="control-label">Text</label>
             <span class="ctrl-text">{Text}</span>
@@ -132,7 +132,7 @@
 
 
 
-      <div class="col-sm-10 col-md-10">
+      <div class="span10">
         
         <!-- 
           Below we have the columns to drop controls
@@ -140,18 +140,17 @@
             -- Grid system used for rendering columns 
             -- Columns can be simply added by defining a div with droppedFields class
         -->
-        <div class="col-sm-12 col-md-12" id="selected-content">
-          <div class="row" id="form-title-div">
-            <input type="text" class="input-large span12 form-control" placeholder="Type form title here" id="form-title">
-          </div>
-          <br>    
-          <div class="row">
-          <div class="well droppedFields col-sm-6 col-md-6"></div>
-          <div class="well droppedFields col-sm-6 col-md-6"></div>
+        <div class="span12" id="selected-content">
+          <div class="row-fluid" id="form-title-div">
+          <input type="text" class="input-large span12" placeholder="Type form title here" id="form-title"/>
+          </div>    
+          <div class="row-fluid">
+          <div class="span6 well droppedFields"></div>
+          <div class="span6 well droppedFields"></div>
           </div>
           <!-- Action bar - Suited for buttons on form -->
-          <div class="row">
-          <div class="well action-bar droppedFields col-sm-12 col-md-12" style="min-height:80px;"></div>
+          <div class="row-fluid">
+          <div class="span12 well action-bar droppedFields" style="min-height:80px;"></div>
           </div>
         </div>
   
@@ -164,10 +163,10 @@
 
 
   <!-- Preview button -->
-  <div class="row"> 
-    <div class="col-sm-12 col-md-12">
-      <input type="button" class="btn btn-primary ctrl-btn" value="Preview" onclick="preview();">
-      <input type="button" class="btn btn-primary ctrl-btn" value="Add Table" onclick="$('#dialog-form-nombre-colonne').modal('show'); $('#dialog-form-nombre-colonne').css('z-index', '1500');">
+  <div class="row-fluid"> 
+    <div class="span12">
+      <input type="button" class="btn btn-primary" value="Preview" onclick="preview();"/>
+      <input type="button" class="btn btn-primary" value="Ajouter Tableau" onclick="$('#dialog-form-nombre-colonne').modal('show'); $('#dialog-form-nombre-colonne').css('z-index', '1500');"/>
     </div>
   </div>
 
@@ -230,6 +229,7 @@
   </p>
 </script>
 
+<!-- End of templates -->
 
 <div id="dialog-form-nombre-colonne" class="modal hide fade" style="display: none; ">
   <div class="modal-header">
