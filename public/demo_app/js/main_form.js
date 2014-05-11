@@ -1,8 +1,3 @@
-  $(document).ready( function() {
-    $("#form-title").removeClass('disabled');
-  });
-  
-
   function makeDraggable() {
     $(".selectorField").draggable({ helper: "clone",stack: "div",cursor: "move", cancel: null  });
   }
@@ -80,13 +75,13 @@
     $("#nbColonne").html($("#sliderNbColonne").slider("value"));
 
 
-    // Permet le trie des "tableaux"
-    $("#selected-content").sortable({
-      cancel: null,      
-      start: function (event, ui) {
-        $("#divDeleteTableau").hide();
-      }
-    }).disableSelection();
+    // // Permet le trie des "tableaux"
+    // $("#selected-content").sortable({
+    //   cancel: null,      
+    //   start: function (event, ui) {
+    //     $("#divDeleteTableau").hide();
+    //   }
+    // }).disableSelection();
   }
   
 
