@@ -66,7 +66,7 @@
 
     $("#sliderNbColonne").slider({
       min: 1,
-      max: 4,
+      max: 5,
       value: 1,
       slide: function (event, ui) {
         $("#nbColonne").html(ui.value);
@@ -196,16 +196,6 @@
     var form = $("#theForm");
     var div_ctrl = $("#"+ctrl_id);    
 
-    // Gestion du champs obligatoire
-    var listeHiddenObligatoire = div_ctrl.find(".hiddenObligatoire");
-    if (listeHiddenObligatoire != null && listeHiddenObligatoire.length > 0) {
-      var ctrlObligatoire = listeHiddenObligatoire[0];
-      form.find("[name=obligatoire]").attr('checked', ctrlObligatoire.value == "true");
-      form.find("#pObligatoire").show();
-    }
-    else {
-      form.find("#pObligatoire").hide();
-    }
     // Gestion du chargement champs sp�cifiques
     form.find("[name=label]").val(div_ctrl.find('.control-label').text())
     var specific_load_method = load_values[ctrl_type];
@@ -286,12 +276,6 @@
     var div_ctrl = $("#"+values.forCtrl);
     div_ctrl.find('.control-label').text(values.label);
 
-    // Gestion du champs obligatoire
-    var listeHiddenObligatoire = div_ctrl.find(".hiddenObligatoire");
-    if (listeHiddenObligatoire != null && listeHiddenObligatoire.length > 0) {
-      var ctrlObligatoire = listeHiddenObligatoire[0];
-      ctrlObligatoire.value = values.obligatoire;
-    }
 
     var specific_save_method = save_changes[values.type];
     if(typeof(specific_save_method)!='undefined') {
@@ -306,7 +290,6 @@
     // var ctrl = div_ctrl.find("input")[0];
     ctrlText.placeholder = values.placeholder;
     ctrlText.name = values.name;
-    // console.log(values.obligatoire);
   }
 
   // Password box customization behaves same as textbox

@@ -78,8 +78,7 @@ col {
   }
   .control-label {
     display: inline-block !important;
-    pasdding-top: 5px;
-    text-align: right;
+    padding-top: 5px;
     vertical-align: baseline;
     padding-right: 10px;
   }
