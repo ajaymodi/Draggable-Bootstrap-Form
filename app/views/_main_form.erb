@@ -25,10 +25,15 @@
         <div class="form-group" id="form-title-div">
           <input type="text" class="form-control" placeholder="Type form title here" id="form-title"/>
         </div>
+
         <table class="fields" style="width:100%;">
+          <colgroup>
+            <col span="1"/>
+            <col span="1"/>
+          </colgroup>
           <tr>
-            <td class="span5 well droppedFields"></td>
-            <td class="span5 well droppedFields"></td>
+            <td class="span5 well droppedFields" ></td>
+            <td class="span5 well droppedFields" ></td>
           </tr>
         </table>
         <br/>
@@ -45,13 +50,13 @@
     <div class="row">
       <div class="span2" style="margin-left:10px;">
           
+
         <b>Input Fields</b><br>        
         <div class="selectorField draggableField">
-          <div class="textbox well well-mini"><b></b> Text</div>
+          <div class="textbox well well-mini"><b></b> Text Input</div>
           <div class="modele">
-            <label class="control-label">Text</label>
-            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox ">
-            <input type="hidden" class="hiddenObligatoire ">
+            <label class="control-label">Text Input</label>
+            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control" style="width:50%;">
           </div>
         </div>
 
@@ -59,8 +64,7 @@
           <div class="password well well-mini"><b></b> Password</div>
           <div class="modele">
             <label class="control-label">Password</label>
-            <input type="password" placeholder="Password ..." class="ctrl-passwordbox ">
-            <input type="hidden" class="hiddenObligatoire ">
+            <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control" style="width:50%;">
           </div>
         </div>
 
@@ -68,38 +72,35 @@
           <div class="combobox well well-mini"><b></b>Combobox</div>
           <div class="modele">
             <label class="control-label">Combobox</label>
-            <select class="ctrl-combobox">
+            <select class="ctrl-combobox form-control">
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
             </select>
-            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
         <div class="selectorField draggableField">
           <div class="radiogroup well well-mini"><b></b> Radio button</div>
           <div class="modele">
-            <label class="control-label" style="vertical-align:top">Radio button</label>
-            <div style="display:inline-block;" class="ctrl-radiogroup">
+            <label class="control-label" style="text-align:left">Radio button</label>
+            <div  class="ctrl-radiogroup radio">
               <span style="display:block;"><input type="radio" name="radioField" value="option1">Option 1</span>
               <span style="display:block;"><input type="radio" name="radioField" value="option2">Option 2</span>
               <span style="display:block;"><input type="radio" name="radioField" value="option3">Option 3</span>
             </div>
-            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
         <div class="selectorField draggableField">
           <div class="checkboxgroup well well-mini"><b></b> Checkbox</div>
           <div class="modele">
-            <label class="control-label" style="vertical-align:top">Checkbox</label>
-            <div style="display:inline-block;" class="ctrl-checkboxgroup">
+            <label class="control-label" >Checkbox</label>
+            <div class="ctrl-checkboxgroup checkbox">
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option1">Option 1</span>
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option2">Option 2</span>
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option3">Option 3</span>
             </div>
-            <input type="hidden" class="hiddenObligatoire ">
           </div>
         </div>
 
@@ -108,7 +109,7 @@
           <div class="modele">
             <label class="control-label" style="vertical-align:top">Selection multiple</label>
             <div style="display:inline-block;">
-              <select multiple="multiple" style="width:150px" class="ctrl-selectmultiplelist">
+              <select multiple="multiple" style="width:150px" class="ctrl-selectmultiplelist form-control">
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
@@ -131,8 +132,8 @@
         <div class="selectorField draggableField">
           <div class="displaytext well well-mini"><b></b> Text</div>
           <div class="modele">
-            <label class="control-label">Text</label>
-            <span class="ctrl-text">{Text}</span>
+            <label class="control-label">TextArea</label>
+            <span class="ctrl-text">{Textarea}</span>
           </div>
         </div>
 

@@ -16,6 +16,8 @@ body {
   width:85%;
 }
 
+
+
 .draggableField > input,select, button, .checkboxgroup, .selectmultiple, .radiogroup {
   margin-top: 10px;
   margin-right: 10px;
@@ -64,6 +66,10 @@ body {
   display:none;
 }
 
+col {
+    width:200px;
+}
+
 
 <style id="content-styles">
     /* Styles that are also copied for Preview */
@@ -90,3 +96,4 @@ body {
     padding-left:5px;
   }
 </style>
+
