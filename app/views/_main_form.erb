@@ -187,9 +187,9 @@
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-dismiss="modal" onclick='save_customize_changes()'>Sauvegarder</button>
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" onclick='delete_ctrl()'>Supprimer</button>
+        <button class="btn btn-primary" data-dismiss="modal" onclick='save_customize_changes()'>Save</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" onclick='delete_ctrl()'>Delete</button>
       </div>
     </div>
   </div>
@@ -201,9 +201,9 @@
   <form id="theForm" class="form-horizontal">
     <input type="hidden" value="{{type}}" name="type"/>
     <input type="hidden" value="{{forCtrl}}" name="forCtrl"/>
-    <p id="pLibelle"><label class="control-label" for="handlebars-textbox-label">Libell&eacute;</label> <input type="text" name="label" value="" id="handlebars-textbox-label"/></p>
-    <p style="display:{{displayNom}}"><label class="control-label" for="handlebars-textbox-name">Nom</label> <input type="text" value="" name="name" id="handlebars-textbox-name"/></p>
-    <p id="pObligatoire"><label class="control-label" for="checkbox-obligatoire-textbox">Obligatoire</label> <input type="checkbox" name="obligatoire" value="" id="checkbox-obligatoire-textbox"/></p>
+    <p id="pLibelle"><label class="control-label" for="handlebars-textbox-label">Label</label> <input type="text" name="label" value="" id="handlebars-textbox-label"/></p>
+    <p style="display:{{displayNom}}"><label class="control-label" for="handlebars-textbox-name">Name</label> <input type="text" value="" name="name" id="handlebars-textbox-name"/></p>
+    <p id="pObligatoire"><label class="control-label" for="checkbox-obligatoire-textbox">Required</label> <input type="checkbox" name="obligatoire" value="" id="checkbox-obligatoire-textbox"/></p>
     {{{content}}}
   </form>      
 </script>

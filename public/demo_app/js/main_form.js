@@ -165,7 +165,7 @@
   
   /* Delete the control from the form */
   function delete_ctrl() {
-    if(window.confirm("Etes-vous certain ?")) {
+    if(window.confirm("Are you sure ?")) {
       var ctrl_id = $("#theForm").find("[name=forCtrl]").val()
       console.log(ctrl_id);
       $("#"+ctrl_id).remove();
