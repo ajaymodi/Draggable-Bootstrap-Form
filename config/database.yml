@@ -1,0 +1,15 @@
+development:
+   mongo:
+    host: localhost
+    port: 27017
+    database: demo_dev
+staging:
+   mongo:
+    host: localhost
+    port: 27017
+    database: demo_test
+production:
+   mongo:
+    host: localhost
+    port: 27017
+    database: demo_prod

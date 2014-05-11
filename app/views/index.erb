@@ -1,0 +1,17 @@
+<% if login? %>
+  <%= erb :_main_form %>
+<% else %>
+  <div class="container">
+    <form class="form-signin" id="signin" role="form" action="/login"  method="post">
+      <h2 class="form-signin-heading">Please sign in</h2>
+      <input class="form-control" placeholder="Email address" required="" autofocus="" type="email" name="email" data-rule-required="true" data-rule-email="true" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address" />
+      <br/>
+      <input class="form-control" placeholder="Password" required="" type="password" name="password" />
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <br/>
+      <a href="/signup"  > Don't have an account? <strong>Sign Up</strong></a>
+    </form>
+  </div>
+ <% end %>
+
+

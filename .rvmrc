@@ -1,0 +1,10 @@
+# create the gemset if it does not exist
+rvm_gemset_create_on_use_flag=1
+# switch to ruby version
+rvm use ruby-1.9.3
+# switch to default ruby version when exiting directory
+rvm_project_rvmrc_default=1
+# use default ruby with the location_b
+rvm gemset use location_search
+# Do bundle install
+bundle install

@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <title>Demo App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/demo_app/css/bootstrap.min.css" rel="stylesheet" media="screen" >
+    <link rel="stylesheet" href="demo_app/css/jquery-ui.min.css" media="screen">
+    <link href="/demo_app/css/signin.css" rel="stylesheet" media="screen">
+    <link href="/demo_app/css/main.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="/demo_app/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/demo_app/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/demo_app/js/main.js"></script>
+    <script type="text/javascript" src="/demo_app/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/demo_app/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/demo_app/js/handlebars.js"></script>
+  </head>
+  <body>
+    <% if flash[:error] %>
+      <p class= "field_with_errors">
+        <%= flash[:error] %>
+      </p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
