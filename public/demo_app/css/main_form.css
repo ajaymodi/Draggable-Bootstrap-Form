@@ -11,8 +11,9 @@ body {
   margin-right: 5px;
 }
 
-.col-md-6 {
-  width: 49.5%;
+.span10{
+  float:right;
+  width:85%;
 }
 
 .draggableField > input,select, button, .checkboxgroup, .selectmultiple, .radiogroup {
