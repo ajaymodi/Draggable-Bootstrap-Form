@@ -93,29 +93,33 @@
   }
   
 
-  // Ajout de tableau
+  // Add table
   function addTable() {
     var bValid = true;          
     if (bValid) {
       var nbColumns = $("#sliderNbColumns").slider("value");
-      var contentToAdd = "<div class=\"row-fluid\">";
-      var spanWidth = 12 / nbColumns;
+      var contentToAdd = "<table class=\"fields\" style=\"width:90%;\">\n";
+      var tbody = "";
+      contentToAdd += "<colgroup>\n";
       for (var i = 0; i < nbColumns; i++) {
-        contentToAdd += "<div class=\"span" + spanWidth + " well droppedFields\"></div>";
+        contentToAdd += "<col span=\"1\"/>\n";
+        tbody += "<td class=\"well droppedFields\">\n</td>\n";
       }
-      contentToAdd += "</div>";
+      contentToAdd += "</colgroup>\n";
+      contentToAdd += "<tbody>\n<tr>\n"+tbody+"</tr>\n</tbody>\n</table>\n<br/>";
       $('#dialog-form-number-column').modal('hide');
       $("#selected-content").append(contentToAdd);
       docReady();
     }
   }
-  // Suppression de tableau 
+
+  // remove table
   var tableToDelete = null;
   function removeTable() {
     if (tableToDelete) {      
       if (window.confirm("Are you sure ?")) {
         $("body").append($("#divDeleteTable")); // Sinon il r�apparait ...
-        $(tableToDelete).parent().remove();
+        $(tableToDelete).parent().parent().parent().remove();
         tableToDelete = null;
         $("#divDeleteTable").hide();
       }
