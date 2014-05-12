@@ -26,7 +26,7 @@
           <input type="text" class="form-control" placeholder="Type form title here" id="form-title"/>
         </div>
 
-        <table class="fields" style="width:100%;">
+        <table class="fields" style="width:90%;">
           <colgroup>
             <col span="1"/>
             <col span="1"/>
@@ -39,7 +39,7 @@
         <br/>
 
         <!-- Action bar - Suited for buttons on form -->
-         <table class="fields" style="width:100%;">
+         <table class="fields" style="width:90%;">
           <tr>
             <td class="span5 well action-bar droppedFields">
             </td>
@@ -196,32 +196,62 @@
   <form id="theForm" class="form-horizontal">
     <input type="hidden" value="{{type}}" name="type"/>
     <input type="hidden" value="{{forCtrl}}" name="forCtrl"/>
-    <p id="pLibelle"><label class="control-label" for="handlebars-textbox-label">Label</label> <input type="text" name="label" value="" id="handlebars-textbox-label"/></p>
-    <p style="display:{{displayNom}}"><label class="control-label" for="handlebars-textbox-name">Name</label> <input type="text" value="" name="name" id="handlebars-textbox-name"/></p>
+    
+    <div id="pLibelle" class="form-group">
+      <label class="control-label col-sm-2" for="handlebars-textbox-label">Label</label> 
+      <div class="col-sm-10">
+        <input type="text" name="label" value="" id="handlebars-textbox-label" class="form-control"/>
+      </div>
+    </div>
+
+    <div style="display:{{displayNom}}" class="form-group">
+      <label class="control-label col-sm-2" for="handlebars-textbox-name">Name</label>
+      <div class="col-sm-10">
+        <input type="text" name="name" value="" id="handlebars-textbox-namr" class="form-control"/>
+      </div>
+    </div>
+
     {{{content}}}
   </form>      
 </script>
 
 <script id="textbox-template" type="text/x-handlebars-template">
-  <p><label class="control-label">Placeholder</label> <input type="text" name="placeholder" value=""/></p>  
+  <div class="form-group">
+    <label class="control-label col-sm-2" >Placeholder</label> 
+    <div class="col-sm-10">
+      <input type="text" name="placeholder" value="" class="form-control"/>
+    </div>
+  </div>  
 </script>
 
 <script id="combobox-template" type="text/x-handlebars-template">
-  <p><label class="control-label">Options</label> <textarea name="options" rows="5"></textarea></p>
+  <div class="form-group">
+    <label class="control-label col-sm-2" >Options</label> 
+    <div class="col-sm-10">
+      <textarea name="options" rows="5" class="form-control"></textarea>
+    </div>
+  </div>
 </script>
 
 <script id="textarea-template" type="text/x-handlebars-template">
-  <p><label class="control-label" for="handlebars-textbox-textarea">TextArea</label> <textarea name="textarea" rows="3" id="handlebars-textbox-textarea"></textarea></p>  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="handlebars-textbox-textarea">TextArea</label> 
+    <div class="col-sm-10">
+      <textarea name="textarea" rows="5" class="form-control" id="handlebars-textbox-textarea"></textarea>
+    </div>
+  </div>
 </script>
 
 <script id="date-template" type="text/x-handlebars-template">
-  <p>
-    <label class="control-label" for="handlebars-textbox-formatdate" style="padding-top:16px;">Format</label>
-    <select name="dateformat" id="handlebars-textbox-formatdate">
-      <option value="MM/DD/YYYY">MM/DD/YYYY</option>
-      <option value="MM/DD/YYYY hh:mm">DD/MM/YYYY hh:mm</option>
-    </select>
-  </p>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="handlebars-textbox-formatdate">Format</label> 
+    <div class="col-sm-10">
+      <select name="dateformat" id="handlebars-textbox-formatdate" class="form-control">
+        <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+        <option value="MM/DD/YYYY hh:mm">DD/MM/YYYY hh:mm</option>
+      </select>
+    </div>
+  </div>
 </script>
 
 <!-- End of templates -->

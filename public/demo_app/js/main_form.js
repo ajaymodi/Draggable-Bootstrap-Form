@@ -10,44 +10,49 @@
     makeDraggable();
     
     $( ".droppedFields" ).droppable({
-        activeClass: "activeDroppable",
-        hoverClass: "hoverDroppable",
-        accept: ":not(.ui-sortable-helper)",
-        drop: function( event, ui ) {
-        //console.log(event, ui);
-        var draggable = ui.draggable;
-        draggable = $(ui.draggable).find(".modele").clone();
-          // draggable = draggable.clone();
+      activeClass: "activeDroppable",
+      hoverClass: "hoverDroppable",
+      accept: ":not(.ui-sortable-helper)",
+      drop: function( event, ui ) {
+      //console.log(event, ui);
+      var draggable = ui.draggable;
+      if($(ui.draggable).find('button').length > 0){
+        draggable = draggable.clone();
+      } else{
+        draggable = $(ui.draggable).find(".modele").clone();          
         draggable.removeClass("modele");
-        draggable.removeClass("selectorField");
-        draggable.addClass("droppedField");
-        draggable[0].id = "CTRL-DIV-"+(_ctrl_index++); // Attach an ID to the rendered control
-        draggable.appendTo(this);       
-        
-        /* Once dropped, attach the customization handler to the control */
-        draggable.click(function () {          
-                    // The following assumes that dropped fields will have a ctrl-defined. 
-                    //   If not required, code needs to handle exceptions here. 
-                    var me = $(this)
-                    var ctrl = me.find("[class*=ctrl]")[0];
-                    var ctrl_type = $.trim(ctrl.className.match("ctrl-.*")[0].split(" ")[0].split("-")[1]);
-                    customize_ctrl(ctrl_type, this.id);
-                    //window["customize_"+ctrl_type](this.id);
-                });
+      }
 
-        makeDraggable();
+      draggable.removeClass("selectorField");
+      draggable.addClass("droppedField");
+      draggable[0].id = "CTRL-DIV-"+(_ctrl_index++); // Attach an ID to the rendered control
+      draggable.appendTo(this);       
+      
+      /* Once dropped, attach the customization handler to the control */
+      draggable.click(function () {          
+        // The following assumes that dropped fields will have a ctrl-defined. 
+        //   If not required, code needs to handle exceptions here. 
+        var me = $(this)
+        var ctrl = me.find("[class*=ctrl]")[0];
+        var ctrl_type = $.trim(ctrl.className.match("ctrl-.*")[0].split(" ")[0].split("-")[1]);
+        customize_ctrl(ctrl_type, this.id);
+        //window["customize_"+ctrl_type](this.id);
+      });
+
+      makeDraggable();
       }
     });   
 
     /* Make the droppedFields sortable and connected with other droppedFields containers*/
     $( ".droppedFields" ).sortable({
-                    cancel: null, // Cancel the default events on the controls
-                    connectWith: ".droppedFields"
+      cancel: null, // Cancel the default events on the controls
+      connectWith: ".droppedFields"
     }).disableSelection();
 
 
     // Affichage du div pour la suppression d'un tableau
     $("#divDeleteTableau").hide();
+    
     $('.droppedFields').mouseenter(function () {
       tableauToDelete = this;
       $("#divDeleteTableau").show();
@@ -57,9 +62,11 @@
         of: $(this).parent().children().last()
       });
     });
+    
     $('.droppedFields').mouseleave(function () {
       $("#divDeleteTableau").hide();
     });
+    
     $('#divDeleteTableau').mouseenter(function () {
       $("#divDeleteTableau").show();
     });
@@ -72,6 +79,7 @@
         $("#nbColonne").html(ui.value);
       }
     });
+    
     $("#nbColonne").html($("#sliderNbColonne").slider("value"));
 
 
@@ -120,14 +128,12 @@
       -- Opens a new window and renders html content there.
   */
   function preview() {
-    console.log('Preview clicked');
-    
     // Sample preview - opens in a new window by copying content -- use something better in production code
     var selected_content = $("#selected-content").clone();
     selected_content.find("div").each(function(i,o) {
-                var obj = $(o)
-                obj.removeClass("draggableField ui-draggable well ui-droppable ui-sortable");
-              });
+      var obj = $(o)
+      obj.removeClass("draggableField ui-draggable well ui-droppable ui-sortable");
+    });
     var legend_text = $("#form-title")[0].value;
     
     if(legend_text=="") {
