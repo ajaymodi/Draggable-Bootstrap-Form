@@ -139,19 +139,22 @@
     
     var dialogContent = '<!DOCTYPE HTML>\n<html lang="en-US">\n<head>\n<meta charset="UTF-8">\n<title></title>\n';
     dialogContent+= '<link href="/demo_app/css/bootstrap.min.css" rel="stylesheet" media="screen">\n';
+    dialogContent+= '<link href="/demo_app/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">\n';
+    dialogContent+= '<script type="text/javascript" src="/demo_app/js/jquery-2.1.1.min.js"></script>\n';
+    dialogContent+= '<script type="text/javascript" src="/demo_app/js/moment.min.js"></script>\n';
+    dialogContent+= '<script type="text/javascript" src="/demo_app/js/bootstrap-datetimepicker.js"></script>\n';
+    // dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     dialogContent+='<style>\n'+$("#content-styles").html()+'\n</style>\n';
+      
     dialogContent+= '</head>\n<body>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
     dialogContent+= selected_content_html;
+    dialogContent+= '<script>\n $(".date-picker").focus(function() {var type = $(this).parent().find( "span" ).text();if (typeof type !== "undefined") { if(type=="{DD/MM/YYYY}") {$(".date-picker").datetimepicker({pickTime: false});} else{$(".date-picker").datetimepicker();}}});\n</script>\n';
     dialogContent+= '\n</body></html>';
-
     dialogContent+='<br/><br/><b>Source code: </b><pre>'+$('<div/>').text(dialogContent).html();+'</pre>\n\n';
-
     dialogContent = dialogContent.replace('\n</body></html>','');
     dialogContent+= '\n</body></html>';
     
-    
-
     var win = window.open("about:blank");
     win.document.write(dialogContent);
   }
@@ -273,7 +276,8 @@
     var form = $("#theForm");
     var div_ctrl = $("#" + ctrl_id);    
     var ctrlText = div_ctrl.find(".ctrl-date");
-    form.find("[name=dateformat]").val(ctrlText.text());
+    $("#handlebars-textbox-formatdate").val($(ctrlText[0]).text());
+    // form.append('<p><input type="text" id="'+ctrl_id+'"input "> </input></p>');
   }
 
   

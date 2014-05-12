@@ -41,7 +41,8 @@
         <!-- Action bar - Suited for buttons on form -->
          <table class="fields" style="width:100%;">
           <tr>
-            <td class="span5 well action-bar droppedFields"></td>
+            <td class="span5 well action-bar droppedFields">
+            </td>
           </tr>
         </table>
       </div>
@@ -122,9 +123,10 @@
         <b>Extra Fields</b><br>
         <div class="selectorField draggableField">
           <div class="displaydate well well-mini"><b></b> Date</div>
-          <div class="modele">
+          <div class="modele" data-date-format="DD/MM/YYYY">
             <label class="control-label">Date</label>
-            <span class="ctrl-date">{DD/MM/YYYY}</span>
+            <span class="ctrl-date">DD/MM/YYYY</span>
+            <input type="text" placeholder="Select Date..." class="ctrl-date form-control date-picker">
           </div>
         </div>
 
@@ -218,7 +220,7 @@
     <select name="dateformat" id="handlebars-textbox-formatdate">
       <option value="DD/MM/YYYY">DD/MM/YYYY</option>
       <option value="DD/MM/YYYY hh:mm:ss">DD/MM/YYYY hh:mm:ss</option>
-    </select>    
+    </select>
   </p>
 </script>
 
