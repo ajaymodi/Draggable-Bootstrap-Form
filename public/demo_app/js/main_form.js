@@ -99,9 +99,9 @@
     if (bValid) {
       var nbColumns = $("#sliderNbColumns").slider("value");
       var contentToAdd = "<div class=\"row-fluid\">";
-      var largeurSpan = 12 / nbColumns;
+      var spanWidth = 12 / nbColumns;
       for (var i = 0; i < nbColumns; i++) {
-        contentToAdd += "<div class=\"span" + largeurSpan + " well droppedFields\"></div>";
+        contentToAdd += "<div class=\"span" + spanWidth + " well droppedFields\"></div>";
       }
       contentToAdd += "</div>";
       $('#dialog-form-number-column').modal('hide');
