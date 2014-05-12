@@ -49,6 +49,7 @@
             </tr>
           </tbody>
         </table>
+        <br/>
       </div>
    </div>       
   
@@ -175,8 +176,10 @@
   <!-- Preview button -->
   <div class="row-fluid"> 
     <div class="span12">
-      <input type="button" class="btn btn-primary" value="Preview" onclick="preview();"/>
-      <input type="button" class="btn btn-primary" value="Add Table" onclick="$('#dialog-form-number-column').modal('show'); $('#dialog-form-number-column').css('z-index', '1500');"/>
+      <button class="btn btn-primary  btn-lg" value="Preview" onclick="preview();"/> Preview </button>
+      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#dialog-form-number-column">
+        Add Table
+      </button>
     </div>
   </div>
 
@@ -270,22 +273,27 @@
 
 <!-- End of templates -->
 
-<div id="dialog-form-number-column" class="modal hide fade" style="display: none; ">
-  <div class="modal-header">
-    <a class="close" data-dismiss="modal">x</a>
-    <h3>Create Table</h3>
-  </div>
-  <div class="modal-body" style="padding:10px 40px 0 40px; min-height:150px;">
-  <form>
-    <label for="nbColumns">Number of columns : <span id="nbColumns">1</span></label>
-    <div id="sliderNbColumns"></div>
-  </form>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn btn-success" onclick="addTable();">Add Table</a>
-    <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+<div class="modal fade" id="dialog-form-number-column" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Create Table</h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <label for="nbColumns">Number of columns : <span id="nbColumns">1</span></label>
+          <div id="sliderNbColumns"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" onclick="addTable();" >Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <span style="position:absolute; padding-right:6px; height:10px;" id="divDeleteTable">
   <a href="#" onclick="removeTable()"><img src="demo_app/images/delete.png" alt=""></a>
