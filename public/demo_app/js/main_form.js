@@ -19,8 +19,8 @@
       if($(ui.draggable).find('button').length > 0){
         draggable = draggable.clone();
       } else{
-        draggable = $(ui.draggable).find(".modele").clone();          
-        draggable.removeClass("modele");
+        draggable = $(ui.draggable).find(".model").clone();          
+        draggable.removeClass("model");
       }
 
       draggable.removeClass("selectorField");
@@ -51,12 +51,12 @@
 
 
     // Affichage du div pour la suppression d'un tableau
-    $("#divDeleteTableau").hide();
+    $("#divDeleteTable").hide();
     
     $('.droppedFields').mouseenter(function () {
-      tableauToDelete = this;
-      $("#divDeleteTableau").show();
-      $("#divDeleteTableau").position({
+      tableToDelete = this;
+      $("#divDeleteTable").show();
+      $("#divDeleteTable").position({
         my: "right top",
         at: "right top",
         of: $(this).parent().children().last()
@@ -64,60 +64,60 @@
     });
     
     $('.droppedFields').mouseleave(function () {
-      $("#divDeleteTableau").hide();
+      $("#divDeleteTable").hide();
     });
     
-    $('#divDeleteTableau').mouseenter(function () {
-      $("#divDeleteTableau").show();
+    $('#divDeleteTable').mouseenter(function () {
+      $("#divDeleteTable").show();
     });
 
-    $("#sliderNbColonne").slider({
+    $("#sliderNbColumns").slider({
       min: 1,
       max: 5,
       value: 1,
       slide: function (event, ui) {
-        $("#nbColonne").html(ui.value);
+        $("#nbColumns").html(ui.value);
       }
     });
     
-    $("#nbColonne").html($("#sliderNbColonne").slider("value"));
+    $("#nbColumns").html($("#sliderNbColumns").slider("value"));
 
 
     // // Permet le trie des "tableaux"
     // $("#selected-content").sortable({
     //   cancel: null,      
     //   start: function (event, ui) {
-    //     $("#divDeleteTableau").hide();
+    //     $("#divDeleteTable").hide();
     //   }
     // }).disableSelection();
   }
   
 
   // Ajout de tableau
-  function ajouterTableau() {
+  function addTable() {
     var bValid = true;          
     if (bValid) {
-      var nbColonne = $("#sliderNbColonne").slider("value");
+      var nbColumns = $("#sliderNbColumns").slider("value");
       var contentToAdd = "<div class=\"row-fluid\">";
-      var largeurSpan = 12 / nbColonne;
-      for (var i = 0; i < nbColonne; i++) {
+      var largeurSpan = 12 / nbColumns;
+      for (var i = 0; i < nbColumns; i++) {
         contentToAdd += "<div class=\"span" + largeurSpan + " well droppedFields\"></div>";
       }
       contentToAdd += "</div>";
-      $('#dialog-form-nombre-colonne').modal('hide');
+      $('#dialog-form-number-column').modal('hide');
       $("#selected-content").append(contentToAdd);
       docReady();
     }
   }
   // Suppression de tableau 
-  var tableauToDelete = null;
-  function supprimerTableau() {
-    if (tableauToDelete) {      
+  var tableToDelete = null;
+  function removeTable() {
+    if (tableToDelete) {      
       if (window.confirm("Are you sure ?")) {
-        $("body").append($("#divDeleteTableau")); // Sinon il r�apparait ...
-        $(tableauToDelete).parent().remove();
-        tableauToDelete = null;
-        $("#divDeleteTableau").hide();
+        $("body").append($("#divDeleteTable")); // Sinon il r�apparait ...
+        $(tableToDelete).parent().remove();
+        tableToDelete = null;
+        $("#divDeleteTable").hide();
       }
     }
   }
@@ -433,7 +433,7 @@
       content: specific_template(ctrl_params), 
       type: ctrl_type,
       forCtrl: ctrl_id,
-      displayNom: ctrl_type == 'text' || ctrl_type == 'date' ? 'none' : 'block'
+      displayName: ctrl_type == 'text' || ctrl_type == 'date' ? 'none' : 'block'
     }
     
     // Pass the parameters - along with the specific template content to the Base template

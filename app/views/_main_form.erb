@@ -23,7 +23,7 @@
     <div class="span10">
       <div class="span12" id="selected-content">
         <div class="form-group" id="form-title-div">
-          <input type="text" class="form-control" placeholder="Type form title here" id="form-title"/>
+          <input type="text" class="form-control" placeholder="Type form title here" id="form-title" style="width:90%;"/>
         </div>
 
         <table class="fields" style="width:90%;">
@@ -31,31 +31,33 @@
             <col span="1"/>
             <col span="1"/>
           </colgroup>
-          <tr>
-            <td class="span5 well droppedFields" ></td>
-            <td class="span5 well droppedFields" ></td>
-          </tr>
+          <tbody>
+            <tr>
+              <td class="span5 well droppedFields" ></td>
+              <td class="span5 well droppedFields" ></td>
+            </tr>
+          </tbody>
         </table>
         <br/>
 
         <!-- Action bar - Suited for buttons on form -->
          <table class="fields" style="width:90%;">
-          <tr>
-            <td class="span5 well action-bar droppedFields">
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td class="span5 well action-bar droppedFields">
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
    </div>       
   
     <div class="row">
       <div class="span2" style="margin-left:10px;">
-          
-
         <b>Input Fields</b><br>        
         <div class="selectorField draggableField">
           <div class="textbox well well-mini"><b></b> Text Input</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label">Text Input</label>
             <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control">
           </div>
@@ -63,7 +65,7 @@
 
         <div class="selectorField draggableField">
           <div class="password well well-mini"><b></b> Password</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label">Password</label>
             <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control" >
           </div>
@@ -71,7 +73,7 @@
 
         <div class="selectorField draggableField">
           <div class="combobox well well-mini"><b></b>Combobox</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label">Combobox</label>
             <select class="ctrl-combobox form-control">
               <option value="option1">Option 1</option>
@@ -83,31 +85,43 @@
 
         <div class="selectorField draggableField">
           <div class="radiogroup well well-mini"><b></b> Radio button</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label" style="text-align:left">Radio button</label>
             <div  class="ctrl-radiogroup radio">
-              <span style="display:block;"><input type="radio" name="radioField" value="option1">Option 1</span>
-              <span style="display:block;"><input type="radio" name="radioField" value="option2">Option 2</span>
-              <span style="display:block;"><input type="radio" name="radioField" value="option3">Option 3</span>
+              <span style="display:block;">
+                <input type="radio" name="radioField" value="option1">Option 1
+              </span>
+              <span style="display:block;">
+                <input type="radio" name="radioField" value="option2">Option 2
+              </span>
+              <span style="display:block;">
+                <input type="radio" name="radioField" value="option3">Option 3
+              </span>
             </div>
           </div>
         </div>
 
         <div class="selectorField draggableField">
           <div class="checkboxgroup well well-mini"><b></b> Checkbox</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label" >Checkbox</label>
             <div class="ctrl-checkboxgroup checkbox">
-              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option1">Option 1</span>
-              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option2">Option 2</span>
-              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option3">Option 3</span>
+              <span style="display:block;">
+                <input type="checkbox" name="checkboxField" value="option1">Option 1
+              </span>
+              <span style="display:block;">
+                <input type="checkbox" name="checkboxField" value="option2">Option 2
+              </span>
+              <span style="display:block;">
+                <input type="checkbox" name="checkboxField" value="option3">Option 3
+              </span>
             </div>
           </div>
         </div>
 
         <div class="selectorField draggableField">
           <div class="selectmultiple well well-mini"><b></b>Multiselect</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label">Multiselect</label>
             <div >
               <select multiple="multiple" style="width:150px" class="ctrl-selectmultiplelist form-control">
@@ -123,7 +137,7 @@
         <b>Extra Fields</b><br>
         <div class="selectorField draggableField">
           <div class="displaydate well well-mini"><b></b> Date</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label">Date</label>
             <span class="ctrl-date">MM/DD/YYYY</span>
             <input type="text" placeholder="Select Date..." class="ctrl-date form-control date-picker">
@@ -132,7 +146,7 @@
 
         <div class="selectorField draggableField">
           <div class="displaytext well well-mini"><b></b> TextArea</div>
-          <div class="modele">
+          <div class="model">
             <label class="control-label">TextArea</label>
             <textarea class="ctrl-textarea form-control" rows="3"></textarea>
           </div>
@@ -162,7 +176,7 @@
   <div class="row-fluid"> 
     <div class="span12">
       <input type="button" class="btn btn-primary" value="Preview" onclick="preview();"/>
-      <input type="button" class="btn btn-primary" value="Add Table" onclick="$('#dialog-form-nombre-colonne').modal('show'); $('#dialog-form-nombre-colonne').css('z-index', '1500');"/>
+      <input type="button" class="btn btn-primary" value="Add Table" onclick="$('#dialog-form-number-column').modal('show'); $('#dialog-form-number-column').css('z-index', '1500');"/>
     </div>
   </div>
 
@@ -197,14 +211,14 @@
     <input type="hidden" value="{{type}}" name="type"/>
     <input type="hidden" value="{{forCtrl}}" name="forCtrl"/>
     
-    <div id="pLibelle" class="form-group">
+    <div id="lable" class="form-group">
       <label class="control-label col-sm-2" for="handlebars-textbox-label">Label</label> 
       <div class="col-sm-10">
         <input type="text" name="label" value="" id="handlebars-textbox-label" class="form-control"/>
       </div>
     </div>
 
-    <div style="display:{{displayNom}}" class="form-group">
+    <div style="display:{{displayName}}" class="form-group">
       <label class="control-label col-sm-2" for="handlebars-textbox-name">Name</label>
       <div class="col-sm-10">
         <input type="text" name="name" value="" id="handlebars-textbox-namr" class="form-control"/>
@@ -256,25 +270,25 @@
 
 <!-- End of templates -->
 
-<div id="dialog-form-nombre-colonne" class="modal hide fade" style="display: none; ">
+<div id="dialog-form-number-column" class="modal hide fade" style="display: none; ">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">x</a>
     <h3>Create Table</h3>
   </div>
   <div class="modal-body" style="padding:10px 40px 0 40px; min-height:150px;">
   <form>
-    <label for="nbColonne">Number of columns : <span id="nbColonne">1</span></label>
-    <div id="sliderNbColonne"></div>
+    <label for="nbColumns">Number of columns : <span id="nbColumns">1</span></label>
+    <div id="sliderNbColumns"></div>
   </form>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn btn-success" onclick="ajouterTableau();">Add Table</a>
+    <a href="#" class="btn btn-success" onclick="addTable();">Add Table</a>
     <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
   </div>
 </div>
 
-<span style="position:absolute; padding-right:6px; height:10px;" id="divDeleteTableau">
-  <a href="#" onclick="supprimerTableau()"><img src="demo_app/images/delete.png" alt=""></a>
+<span style="position:absolute; padding-right:6px; height:10px;" id="divDeleteTable">
+  <a href="#" onclick="removeTable()"><img src="demo_app/images/delete.png" alt=""></a>
 </span>
 
 <script>
