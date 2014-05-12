@@ -140,6 +140,7 @@
     var dialogContent = '<!DOCTYPE HTML>\n<html lang="en-US">\n<head>\n<meta charset="UTF-8">\n<title></title>\n';
     dialogContent+= '<link href="/demo_app/css/bootstrap.min.css" rel="stylesheet" media="screen">\n';
     dialogContent+= '<link href="/demo_app/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">\n';
+    dialogContent+= '<link href="/demo_app/css/main_form.css" rel="stylesheet" media="screen">\n';
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/jquery-2.1.1.min.js"></script>\n';
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/moment.min.js"></script>\n';
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/bootstrap-datetimepicker.js"></script>\n';
