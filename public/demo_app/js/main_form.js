@@ -161,7 +161,7 @@
       
     dialogContent+= '</head>\n<body>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
-    dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action=""  method="post">'
+    dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
     dialogContent+= selected_content_html;
   
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
@@ -171,7 +171,7 @@
     dialogContent = dialogContent.replace('\n</body></html>','');
     dialogContent+= '\n</body></html>';
     
-    var win = window.open("about:blank");
+    var win = window.open();
     win.document.write(dialogContent);
   }
     

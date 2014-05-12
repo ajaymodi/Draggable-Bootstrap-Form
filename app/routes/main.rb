@@ -31,6 +31,11 @@ get "/" do
   erb :index
 end
 
+post "/form_submit" do
+  erb :blank
+end
+
+
 get "/signup" do
   erb :signup
 end
