@@ -1,8 +1,8 @@
-$( document ).ready(function() {
-  $('.date-picker').focus(function() {
+
+  $('.date-picker').mouseenter(function() {
     var type = $(this).parent().find( "span" ).text();
     if (typeof type !== "undefined") {
-      if(type=="DD/MM/YYYY") {
+      if(type=="MM/DD/YYYY") {
         $('.date-picker').datetimepicker({
           pickTime: false
         });
@@ -12,5 +12,5 @@ $( document ).ready(function() {
 
     }
   });  
-}); 
+
  
