@@ -60,7 +60,7 @@
           <div class="textbox well well-mini"><b></b> Text Input</div>
           <div class="model">
             <label class="control-label">Text Input</label>
-            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control">
+            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control" required="">
           </div>
         </div>
 
@@ -68,7 +68,7 @@
           <div class="password well well-mini"><b></b> Password</div>
           <div class="model">
             <label class="control-label">Password</label>
-            <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control" >
+            <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control" required="">
           </div>
         </div>
 
@@ -76,7 +76,7 @@
           <div class="phone well well-mini"><b></b> Phone</div>
           <div class="model">
             <label class="control-label">Phone</label>
-            <input type='tel' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' placeholder='Phone Number (Format: +99(99)9999-9999)' class="ctrl-phonebox form-control"> 
+            <input type='tel' pattern='\d{3}[\-]\d{3}[\-]\d{4}' placeholder='Format: 999-999-9999' class="ctrl-phonebox form-control" required=""> 
           </div>
         </div>
 
@@ -84,7 +84,7 @@
           <div class="email well well-mini"><b></b> Email</div>
           <div class="model">
             <label class="control-label">Email</label>
-            <input placeholder="Email address"  type="email" name="email" class="ctrl-emailbox form-control" >
+            <input placeholder="Email address"  type="email" name="email" class="ctrl-emailbox form-control" required="">
           </div>
         </div>
 
@@ -177,10 +177,10 @@
           <button class="btn btn-primary ctrl-btn">Primary Button</button>
         </div>
         <div class="selectorField draggableField">
-          <button class="btn btn-success ctrl-btn"><i class="icon-ok-sign icon-white"></i> Save Button</button>
+          <button class="btn btn-success ctrl-btn" type="submit"><i class="icon-ok-sign icon-white"></i> Submit Button</button>
         </div>
         <div class="selectorField draggableField">
-          <button class="btn btn-danger ctrl-btn"><i class="icon-trash icon-white"></i> Delete Button</button>
+          <button class="btn btn-danger ctrl-btn" type="reset"><i class="icon-trash icon-white"></i> Reset Button</button>
         </div>
         <!-- End of list of controls -->
       </div>

@@ -154,15 +154,19 @@
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/jquery-2.1.1.min.js"></script>\n';
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/moment.min.js"></script>\n';
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/bootstrap-datetimepicker.js"></script>\n';
+    dialogContent+= '<script type="text/javascript" src="/demo_app/js/bootstrap.min.js"></script>\n';
+    dialogContent+= '<script type="text/javascript" src="/demo_app/js/jquery.validate.min.js"></script>\n';
     // dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     dialogContent+='<style>\n'+$("#content-styles").html()+'\n</style>\n';
       
     dialogContent+= '</head>\n<body>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
+    dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action=""  method="post">'
     dialogContent+= selected_content_html;
+  
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     // dialogContent+= '<script>\n $(".date-picker").focus(function() {var type = $(this).parent().find( "span" ).text();if (typeof type !== "undefined") { if(type=="DD/MM/YYYY") {$(".date-picker").datetimepicker({pickTime: false});} else{$(".date-picker").datetimepicker();}}});\n</script>\n';
-    dialogContent+= '\n</body></html>';
+    dialogContent+= '</form>\n</body></html>';
     dialogContent+='<br/><br/><b>Source code: </b><pre>'+$('<div/>').text(dialogContent).html();+'</pre>\n\n';
     dialogContent = dialogContent.replace('\n</body></html>','');
     dialogContent+= '\n</body></html>';

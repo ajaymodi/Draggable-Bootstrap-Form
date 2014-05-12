@@ -1,4 +1,3 @@
-
 $('.date-picker').mouseenter(function() {
   var type = $(this).parent().find( "span" ).text();
   if (typeof type !== "undefined") {
