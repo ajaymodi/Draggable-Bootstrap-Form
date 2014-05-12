@@ -149,7 +149,7 @@
     dialogContent+= '</head>\n<body>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
     dialogContent+= selected_content_html;
-    dialogContent+= '<script>\n $(".date-picker").focus(function() {var type = $(this).parent().find( "span" ).text();if (typeof type !== "undefined") { if(type=="{DD/MM/YYYY}") {$(".date-picker").datetimepicker({pickTime: false});} else{$(".date-picker").datetimepicker();}}});\n</script>\n';
+    dialogContent+= '<script>\n $(".date-picker").focus(function() {var type = $(this).parent().find( "span" ).text();if (typeof type !== "undefined") { if(type=="DD/MM/YYYY") {$(".date-picker").datetimepicker({pickTime: false});} else{$(".date-picker").datetimepicker();}}});\n</script>\n';
     dialogContent+= '\n</body></html>';
     dialogContent+='<br/><br/><b>Source code: </b><pre>'+$('<div/>').text(dialogContent).html();+'</pre>\n\n';
     dialogContent = dialogContent.replace('\n</body></html>','');
