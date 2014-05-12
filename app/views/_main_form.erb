@@ -73,6 +73,22 @@
         </div>
 
         <div class="selectorField draggableField">
+          <div class="phone well well-mini"><b></b> Phone</div>
+          <div class="model">
+            <label class="control-label">Phone</label>
+            <input type='tel' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' placeholder='Phone Number (Format: +99(99)9999-9999)' class="ctrl-phonebox form-control"> 
+          </div>
+        </div>
+
+        <div class="selectorField draggableField">
+          <div class="email well well-mini"><b></b> Email</div>
+          <div class="model">
+            <label class="control-label">Email</label>
+            <input placeholder="Email address"  type="email" name="email" class="ctrl-emailbox form-control" >
+          </div>
+        </div>
+
+        <div class="selectorField draggableField">
           <div class="combobox well well-mini"><b></b>Combobox</div>
           <div class="model">
             <label class="control-label">Combobox</label>
@@ -224,7 +240,7 @@
     <div style="display:{{displayName}}" class="form-group">
       <label class="control-label col-sm-2" for="handlebars-textbox-name">Name</label>
       <div class="col-sm-10">
-        <input type="text" name="name" value="" id="handlebars-textbox-namr" class="form-control"/>
+        <input type="text" name="name" value="" id="handlebars-textbox-name" class="form-control"/>
       </div>
     </div>
 

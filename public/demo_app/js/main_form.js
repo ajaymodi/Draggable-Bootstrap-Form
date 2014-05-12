@@ -26,13 +26,13 @@
       draggable.removeClass("selectorField");
       draggable.addClass("droppedField");
       draggable[0].id = "CTRL-DIV-"+(_ctrl_index++); // Attach an ID to the rendered control
-      draggable.appendTo(this);       
+      draggable.appendTo(this);
       
       /* Once dropped, attach the customization handler to the control */
       draggable.click(function () {          
         // The following assumes that dropped fields will have a ctrl-defined. 
         //   If not required, code needs to handle exceptions here. 
-        var me = $(this)
+        var me = $(this);
         var ctrl = me.find("[class*=ctrl]")[0];
         var ctrl_type = $.trim(ctrl.className.match("ctrl-.*")[0].split(" ")[0].split("-")[1]);
         customize_ctrl(ctrl_type, this.id);
@@ -192,6 +192,8 @@
     // Mostly we donot need so many templates
     window.templates.textbox = Handlebars.compile($("#textbox-template").html());
     window.templates.passwordbox = Handlebars.compile($("#textbox-template").html());
+    window.templates.phonebox = Handlebars.compile($("#textbox-template").html());
+    window.templates.emailbox = Handlebars.compile($("#textbox-template").html());
     window.templates.combobox = Handlebars.compile($("#combobox-template").html());
     window.templates.selectmultiplelist = Handlebars.compile($("#combobox-template").html());
     window.templates.radiogroup = Handlebars.compile($("#combobox-template").html());
@@ -222,19 +224,18 @@
   /* Specific method to load values from a textbox control to the customization dialog */
   load_values.textbox = function(ctrl_type, ctrl_id) {
     var form = $("#theForm");
-    var div_ctrl = $("#" + ctrl_id);    
-    var ctrlText = div_ctrl.find("input[type=text]")[0];
+    var div_ctrl = $("#" + ctrl_id);
+    if(ctrl_type=="phonebox"){
+      ctrl_type="telbox";
+    }
+    var ctrlText = div_ctrl.find("input[type="+ctrl_type.slice(0,-3)+"]")[0];
     form.find("[name=name]").val(ctrlText.name);
     form.find("[name=placeholder]").val(ctrlText.placeholder);
   }
   
-  load_values.passwordbox = function(ctrl_type, ctrl_id) {
-    var form = $("#theForm");
-    var div_ctrl = $("#" + ctrl_id);    
-    var ctrl = div_ctrl.find("input[type=password]")[0];
-    form.find("[name=name]").val(ctrl.name);
-    form.find("[name=placeholder]").val(ctrl.placeholder);
-  }
+  load_values.passwordbox = load_values.textbox;
+  load_values.emailbox = load_values.textbox;
+  load_values.phonebox = load_values.textbox;
   
   /* Specific method to load values from a combobox control to the customization dialog  */
   load_values.combobox = function(ctrl_type, ctrl_id) {
@@ -308,19 +309,21 @@
   /* Specific method to save changes to a text box */
   save_changes.textbox = function(values) {
     var div_ctrl = $("#"+values.forCtrl);
-    var ctrlText = div_ctrl.find("input[type=text]")[0];
+    if(values["type"]=="phonebox"){
+      values["type"]="telbox";
+    }
+    var ctrlText = div_ctrl.find("input[type="+values["type"].slice(0,-3)+"]")[0];
     // var ctrl = div_ctrl.find("input")[0];
     ctrlText.placeholder = values.placeholder;
     ctrlText.name = values.name;
   }
 
+
+
   // Password box customization behaves same as textbox
-  save_changes.passwordbox= function(values) {
-    var div_ctrl = $("#"+values.forCtrl);
-    var ctrl = div_ctrl.find("input[type=password]")[0];
-    ctrl.placeholder = values.placeholder;
-    ctrl.name = values.name;
-  }
+  save_changes.passwordbox= save_changes.textbox;
+  save_changes.emailbox= save_changes.textbox;
+  save_changes.phonebox= save_changes.textbox;
 
   /* Specific method to save changes to a combobox */
   save_changes.combobox = function(values) {
