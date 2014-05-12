@@ -136,7 +136,6 @@
           </div>
         </div>
 
-
         <b>Buttons</b><br>
         <div class="selectorField draggableField">
           <button class="btn ctrl-btn btn-default">Simple Button</button>
@@ -197,7 +196,6 @@
     <input type="hidden" value="{{forCtrl}}" name="forCtrl"/>
     <p id="pLibelle"><label class="control-label" for="handlebars-textbox-label">Label</label> <input type="text" name="label" value="" id="handlebars-textbox-label"/></p>
     <p style="display:{{displayNom}}"><label class="control-label" for="handlebars-textbox-name">Name</label> <input type="text" value="" name="name" id="handlebars-textbox-name"/></p>
-    <p id="pObligatoire"><label class="control-label" for="checkbox-obligatoire-textbox">Required</label> <input type="checkbox" name="obligatoire" value="" id="checkbox-obligatoire-textbox"/></p>
     {{{content}}}
   </form>      
 </script>
@@ -210,8 +208,8 @@
   <p><label class="control-label">Options</label> <textarea name="options" rows="5"></textarea></p>
 </script>
 
-<script id="text-template" type="text/x-handlebars-template">
-  <p><label class="control-label" for="handlebars-textbox-text">Texte</label> <textarea name="texte" rows="10" id="handlebars-textbox-text"></textarea></p>  
+<script id="textarea-template" type="text/x-handlebars-template">
+  <p><label class="control-label" for="handlebars-textbox-textarea">TextArea</label> <textarea name="textarea" rows="3" id="handlebars-textbox-textarea"></textarea></p>  
 </script>
 
 <script id="date-template" type="text/x-handlebars-template">

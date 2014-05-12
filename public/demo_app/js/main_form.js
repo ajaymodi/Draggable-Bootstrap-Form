@@ -181,7 +181,7 @@
     window.templates.selectmultiplelist = Handlebars.compile($("#combobox-template").html());
     window.templates.radiogroup = Handlebars.compile($("#combobox-template").html());
     window.templates.checkboxgroup = Handlebars.compile($("#combobox-template").html());
-    window.templates.text = Handlebars.compile($("#text-template").html());
+    window.templates.textarea = Handlebars.compile($("#textarea-template").html());
     window.templates.date = Handlebars.compile($("#date-template").html());    
   }
   
@@ -213,8 +213,13 @@
     form.find("[name=placeholder]").val(ctrlText.placeholder);
   }
   
-  // Passwordbox uses the same functionality as textbox - so just point to that
-  load_values.passwordbox = load_values.textbox;
+  load_values.passwordbox = function(ctrl_type, ctrl_id) {
+    var form = $("#theForm");
+    var div_ctrl = $("#" + ctrl_id);    
+    var ctrl = div_ctrl.find("input[type=password]")[0];
+    form.find("[name=name]").val(ctrl.name);
+    form.find("[name=placeholder]").val(ctrl.placeholder);
+  }
   
   /* Specific method to load values from a combobox control to the customization dialog  */
   load_values.combobox = function(ctrl_type, ctrl_id) {
@@ -255,11 +260,12 @@
   }
 
   /* Specific method to load values from a text to the customization dialog */
-  load_values.text = function (ctrl_type, ctrl_id) {    
+  load_values.textarea = function (ctrl_type, ctrl_id) {    
     var form = $("#theForm");
     var div_ctrl = $("#" + ctrl_id);
-    var ctrlText = div_ctrl.find(".ctrl-text");
-    form.find("[name=text]").val(ctrlText.text());
+    var ctrlText = div_ctrl.find(".ctrl-textarea");
+    form.find("[name=name]").val(ctrlText[0].name);
+    form.find("[name=textarea]").val(ctrlText.text());
   }
 
   /* Specific method to load values from a date to the customization dialog */
@@ -293,7 +299,12 @@
   }
 
   // Password box customization behaves same as textbox
-  save_changes.passwordbox= save_changes.textbox;
+  save_changes.passwordbox= function(values) {
+    var div_ctrl = $("#"+values.forCtrl);
+    var ctrl = div_ctrl.find("input[type=password]")[0];
+    ctrl.placeholder = values.placeholder;
+    ctrl.name = values.name;
+  }
 
   /* Specific method to save changes to a combobox */
   save_changes.combobox = function(values) {
@@ -355,8 +366,8 @@
   }
   
   /* Specific method to save changes to a text box */
-  save_changes.text = function (values) {
-    save_changes_simple_text(values, ".ctrl-text", values.texte)
+  save_changes.textarea = function (values) {
+    save_changes_simple_text(values, ".ctrl-textarea", values.textarea)
   }
 
   /* Specific method to save changes to a text box */
@@ -368,6 +379,7 @@
     var div_ctrl = $("#" + values.forCtrl);
     var ctrlText = div_ctrl.find(ctrl);
     ctrlText.text(value);
+    ctrlText[0].name = values.name;
   }
 
   /* Save the changes due to customization 
