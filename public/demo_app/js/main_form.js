@@ -28,7 +28,7 @@
       draggable[0].id = "CTRL-DIV-"+(_ctrl_index++); // Attach an ID to the rendered control
       draggable.appendTo(this);
       
-      /* Once dropped, attach the customization handler to the control */
+    //   /* Once dropped, attach the customization handler to the control */
       draggable.click(function () {          
         // The following assumes that dropped fields will have a ctrl-defined. 
         //   If not required, code needs to handle exceptions here. 
@@ -36,7 +36,7 @@
         var ctrl = me.find("[class*=ctrl]")[0];
         var ctrl_type = $.trim(ctrl.className.match("ctrl-.*")[0].split(" ")[0].split("-")[1]);
         customize_ctrl(ctrl_type, this.id);
-        //window["customize_"+ctrl_type](this.id);
+        // window["customize_"+ctrl_type](this.id);
       });
 
       makeDraggable();
@@ -451,9 +451,11 @@
     // Pass the parameters - along with the specific template content to the Base template
     var s = templates.common(template_params) + "";
     var arr = s.split('</h3>');
-    $(".modal-header").html(arr[0]+"</h3>");
-    $(".modal-body").html(arr[1]);
-    $('#myModal').css('z-index', '1500');
+
+    $(".mymodalheader").html(arr[0]+"</h3>");
+    $(".mymodalbody").html(arr[1]);
+    $('#myModal').css('z-index', '1200');
+
     $('#myModal').modal({});
     // .modal({});
 
@@ -482,4 +484,9 @@
     } else {
       return true;
     }
+  }
+
+  function appendToBody(){
+    $('#dialog-form-number-column').appendTo("body").modal('show');
+    $("#dialog-form-number-column").css("z-index", "1500");
   }

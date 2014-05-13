@@ -105,15 +105,9 @@
           <div class="model">
             <label class="control-label" style="text-align:left">Radio button</label>
             <div  class="ctrl-radiogroup radio">
-              <span style="display:block;">
-                <input type="radio" name="radioField" value="option1">Option 1
-              </span>
-              <span style="display:block;">
-                <input type="radio" name="radioField" value="option2">Option 2
-              </span>
-              <span style="display:block;">
-                <input type="radio" name="radioField" value="option3">Option 3
-              </span>
+              <span style="display:block;"><input type="radio" name="radioField" value="option1">Option 1</span>
+              <span style="display:block;"><input type="radio" name="radioField" value="option2">Option 2</span>
+              <span style="display:block;"><input type="radio" name="radioField" value="option3">Option 3</span>
             </div>
           </div>
         </div>
@@ -123,15 +117,9 @@
           <div class="model">
             <label class="control-label" >Checkbox</label>
             <div class="ctrl-checkboxgroup checkbox">
-              <span style="display:block;">
-                <input type="checkbox" name="checkboxField" value="option1">Option 1
-              </span>
-              <span style="display:block;">
-                <input type="checkbox" name="checkboxField" value="option2">Option 2
-              </span>
-              <span style="display:block;">
-                <input type="checkbox" name="checkboxField" value="option3">Option 3
-              </span>
+              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option1">Option 1</span>
+              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option2">Option 2</span>
+              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option3">Option 3</span>
             </div>
           </div>
         </div>
@@ -193,7 +181,7 @@
   <div class="row-fluid"> 
     <div class="span12">
       <button class="btn btn-primary  btn-lg" value="Preview" onclick="preview();"/> Preview </button>
-      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#dialog-form-number-column">
+      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#dialog-form-number-column" onclick="appendToBody();">
         Add Table
       </button>
     </div>
@@ -206,13 +194,12 @@
   
   </div>
 
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">       
+      <div class="modal-header mymodalheader">       
       </div>
-      <div class="modal-body">
+      <div class="modal-body mymodalbody">
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" data-dismiss="modal" onclick='save_customize_changes()'>Save</button>
@@ -289,14 +276,14 @@
 
 <!-- End of templates -->
 
-<div class="modal fade" id="dialog-form-number-column" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="dialog-form-number-column"  tabindex="-1" role="dialog" aria-labelledby="tabledialog" aria-hidden="true">
+  <div class="modal-dialog table-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3>Create Table</h3>
       </div>
-      <div class="modal-body">
+      <div class="modal-body table-dialog">
         <form>
           <label for="nbColumns">Number of columns : <span id="nbColumns">1</span></label>
           <div id="sliderNbColumns"></div>
@@ -336,19 +323,19 @@
 
 
 <hr>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'demosanupshinde'; // required: replace example with your forum shortname
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'demosanupshinde'; // required: replace example with your forum shortname
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
