@@ -25,6 +25,7 @@
 
       draggable.removeClass("selectorField");
       draggable.addClass("droppedField");
+      draggable.addClass("draggableField");
       draggable[0].id = "CTRL-DIV-"+(_ctrl_index++); // Attach an ID to the rendered control
       draggable.appendTo(this);
       

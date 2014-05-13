@@ -38,14 +38,8 @@ post "/form_submit" do
 end
 
 post "/form_save" do
-  debugger
   p params.length
 end
-
-get "/form_save" do
-  
-end
-
 
 get "/signup" do
   erb :signup
