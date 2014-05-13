@@ -425,7 +425,12 @@
     $(ctrlText[0]).text(values.shipping);
     ctrlText[0].name = values.name;
     $(ctrlText[2]).text(values.billing);
-    $(ctrlText[1]).prop('checked', values.addressField);
+    if(values.addressField){
+      $(ctrlText[1]).attr('checked', 'checked');  
+    }else{
+      $(ctrlText[1]).removeAttr('checked');
+    }
+    
   }
 
   /* Save the changes due to customization 

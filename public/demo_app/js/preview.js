@@ -20,3 +20,29 @@ $("#form_save").click(function(){
     console.log(response);
   });
 });
+
+$.each($('form').find("[name=addressField]"), function( index, value ) {
+  if($(value).prop('checked')){
+    var me = $(value).parent().parent();
+    me.find(".billing").val(me.find(".shipping").val());
+    $(me.find(".billing")).prop('disabled', true);
+  }
+});
+
+$('.checkAddress').click(function () {
+    var me = $(this).parent().parent();
+    if(this.checked){
+      me.find(".billing").val(me.find(".shipping").val());
+      $(me.find(".billing")).prop('disabled', true);   
+    }else{
+      $(me.find(".billing")).prop('disabled', false);   
+    }
+});
+
+$('.shipping').keyup(function () {
+  var parent = $(this).parent();
+  if($(parent).find('.checkAddress').prop('checked')){
+    $(parent).find(".billing").val($(this).val());
+  }
+});
+
