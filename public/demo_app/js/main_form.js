@@ -205,7 +205,8 @@
     window.templates.radiogroup = Handlebars.compile($("#combobox-template").html());
     window.templates.checkboxgroup = Handlebars.compile($("#combobox-template").html());
     window.templates.textarea = Handlebars.compile($("#textarea-template").html());
-    window.templates.date = Handlebars.compile($("#date-template").html());    
+    window.templates.date = Handlebars.compile($("#date-template").html());   
+    window.templates.address = Handlebars.compile($("#address-template").html());    
   }
   
   // Object containing specific "Save Changes" method
@@ -290,6 +291,17 @@
     form.find("[name=textarea]").val(ctrlText.text());
   }
 
+  load_values.address = function (ctrl_type, ctrl_id) {    
+    var form = $("#theForm");
+    var div_ctrl = $("#" + ctrl_id);
+    var ctrlText = div_ctrl.find(".shipping");
+    form.find("[name=name]").val(ctrlText[0].name);
+    form.find("[name=shipping]").val(ctrlText.text());
+    var ctrlText = div_ctrl.find(".billing");
+    form.find("[name=billing]").val(ctrlText.text());
+    var ctrlCheck = div_ctrl.find("[name=addressField]");
+    form.find("[name=addressField]").prop('checked',ctrlCheck.prop('checked'));
+  }
   /* Specific method to load values from a date to the customization dialog */
   load_values.date = function (ctrl_type, ctrl_id) {
     var form = $("#theForm");
@@ -405,6 +417,15 @@
     var ctrlText = div_ctrl.find(ctrl);
     ctrlText.text(value);
     ctrlText[0].name = values.name;
+  }
+
+  save_changes.address = function (values) {
+    var div_ctrl = $("#" + values.forCtrl);
+    var ctrlText = div_ctrl.find(".ctrl-address");
+    $(ctrlText[0]).text(values.shipping);
+    ctrlText[0].name = values.name;
+    $(ctrlText[2]).text(values.billing);
+    $(ctrlText[1]).prop('checked', values.addressField);
   }
 
   /* Save the changes due to customization 

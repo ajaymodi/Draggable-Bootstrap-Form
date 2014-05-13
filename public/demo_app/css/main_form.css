@@ -39,10 +39,10 @@ body {
 }*/
 
 .selectorField .textbox b, .selectorField .password b,.selectorField .phone b, .selectorField .email b, .selectorField .combobox b, .selectorField .radiogroup b, .selectorField .checkboxgroup b, .selectorField .selectmultiple b,
-.selectorField .displaydate b, .selectorField .displaytext b {
+.selectorField .displaydate b, .selectorField .displaytext b, .selectorField .displayaddress b {
   position:relative; top:3px; left: 0px; width: 18px; height: 16px; display: inline-block; background-image: url("../images/sprite.png"); background-repeat: no-repeat; 
 }
-.selectorField .textbox b, .selectorField .password b, .selectorField .displaytext b {
+.selectorField .textbox b, .selectorField .password b, .selectorField .displaytext b, .selectorField .displayaddress b {
   background-position: -10px -549px;
 }
 
