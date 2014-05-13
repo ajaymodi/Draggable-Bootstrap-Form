@@ -1,12 +1,14 @@
 source :rubygems
 
-gem "sinatra",'~> 1.3.5'
-# For async Active Record models
-gem 'mysql2', '~> 0.2.11'
 gem 'json'
 gem 'connection_pool'
 gem 'thin'
-gem 'spreadsheet', '~> 0.7.5', :require => "spreadsheet/excel"
 group :development do
-  # Development gems
+  gem 'debugger'
 end
+
+gem 'bcrypt-ruby'
+gem 'sinatra'
+gem 'haml'
+gem 'mongo'
+gem 'sinatra-flash'

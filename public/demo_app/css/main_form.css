@@ -16,7 +16,18 @@ body {
   width:85%;
 }
 
+.fields{
+  width:90%;
+}
 
+#form-title{
+  width:90%;
+}
+
+#form_save{
+  float:right;
+  margin-right:200px;
+}
 
 .draggableField > input,select, button, .checkboxgroup, .selectmultiple, .radiogroup {
   margin-top: 10px;
@@ -36,7 +47,7 @@ body {
 }
 
 .selectorField .email b{
-  background-position: -10px -376px;
+  background-position: -10px -372px;
 }
 
 .selectorField .phone b{

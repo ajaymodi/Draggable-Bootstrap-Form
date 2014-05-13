@@ -98,7 +98,7 @@
     var bValid = true;          
     if (bValid) {
       var nbColumns = $("#sliderNbColumns").slider("value");
-      var contentToAdd = "<table class=\"fields\" style=\"width:90%;\">\n";
+      var contentToAdd = "<table class=\"fields\" >\n";
       var tbody = "";
       contentToAdd += "<colgroup>\n";
       for (var i = 0; i < nbColumns; i++) {
@@ -147,7 +147,7 @@
     
     var selected_content_html = selected_content.html();
     
-    var dialogContent = '<!DOCTYPE HTML>\n<html lang="en-US">\n<head>\n<meta charset="UTF-8">\n<title></title>\n';
+    var dialogContent = '<!DOCTYPE HTML>\n<html>\n<head>\n<meta charset="UTF-8">\n<title></title>\n';
     dialogContent+= '<link href="/demo_app/css/bootstrap.min.css" rel="stylesheet" media="screen">\n';
     dialogContent+= '<link href="/demo_app/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">\n';
     dialogContent+= '<link href="/demo_app/css/main_form.css" rel="stylesheet" media="screen">\n';
@@ -160,6 +160,7 @@
     dialogContent+='<style>\n'+$("#content-styles").html()+'\n</style>\n';
       
     dialogContent+= '</head>\n<body>';
+    dialogContent+= '<button  class="btn btn-success ctrl-btn" type="submit" id="form_save">Form save</button>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
     dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
     dialogContent+= selected_content_html;

@@ -12,4 +12,11 @@ $('.date-picker').mouseenter(function() {
   }
 });  
 
- 
+$("#form_save").click(function(){
+  data= ($($('pre')[0]).text());
+  data = {"0":data};
+  
+  $.post(''+self.location+'form_save', data, function(response) {
+    console.log(response);
+  });
+});

@@ -3,6 +3,8 @@ enable :sessions
 
 db = $conn.db('demo_db')
 users = db.collection('users')
+forms = db.collection('forms')
+responses = db.collection('responses')
 
 helpers do
   def login?
@@ -33,6 +35,15 @@ end
 
 post "/form_submit" do
   erb :blank
+end
+
+post "/form_save" do
+  debugger
+  p params.length
+end
+
+get "/form_save" do
+  
 end
 
 
