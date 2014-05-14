@@ -1,0 +1,13 @@
+
+  <body bgcolor=white style="padding-top:1em;">
+    <ul class="nav nav-list"  style="margin-left:2em;margin-top:2em;">
+      <li>
+        <h3>Forms list</h3>
+        <ul class="nav nav-pills nav-stacked" style="margin-left:2em;">
+          <% @forms.each do |p|  %>
+            <li><a href=<%="/forms/#{p['sId']}"%>> <%= p["title"] %> </a></li>
+          <% end %>  
+        </ul>
+      </li>
+    </ul>
+  </body>

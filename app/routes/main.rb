@@ -14,15 +14,16 @@ helpers do
     return session[:user]
   end
 
-end
-
-def admin?
-  if(session[:user]=="admin@anupshinde.com")
-    session[:admin]= true
-  else
-    session[:admin]= false
+  def admin?
+    if(session[:user]=="admin@anupshinde.com")
+      session[:admin]= true
+    else
+      session[:admin]= false
+    end
   end
 end
+
+
 
 get "/" do
   erb :index
@@ -119,13 +120,13 @@ end
  
 # 
 get "/forms/:id" do
-  @form = $forms.find_one({:sId => params[:id]})
+  @form = $forms.find_one({:sId => params[:id].to_i})
   erb :"forms/show"
 end
  
 # 
 delete "/forms/:id" do
-  response = $forms.remove( {:sId => params[:id]});
+  response = $forms.remove( {:sId => params[:id].to_i});
   redirect "/forms"
 end
  
