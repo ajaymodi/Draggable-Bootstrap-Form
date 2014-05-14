@@ -190,10 +190,10 @@
     additionalField+= '<center><img src="/demo_app/images/load.gif" /></center>';
     additionalField+= '</div>';
     additionalField+= 'Message :';
-    additionalField+= '<div id="onsuccessmsg" style="border:5px solid #CCC;padding:15px;"></div>';
+    additionalField+= '<div id="onsavemsg" style="border:5px solid #CCC;padding:15px;"></div>';
     additionalField+= '</div>';
     additionalField+= '<div class="modal-footer">';
-    additionalField+= '<button type="button" class="btn btn-default" href="/forms" disabled>Go to Show</button>';
+    additionalField+= '<button type="button" class="btn btn-default" id="redirect" disabled><a href="/forms">Go to Show</a></button>';
     additionalField+= '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
     additionalField+= '</div></div></div></div>';
     dialogContent+= '\n</body>\n</html>';

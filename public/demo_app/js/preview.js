@@ -15,7 +15,12 @@ $('.date-picker').mouseenter(function() {
 
 function onsave(response,status){
   $("#load_image").hide();
-  $("#onsavesmsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');  
+  $("#onsavemsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');  
+  if(status=="success"){
+    $("#redirect").removeAttr('disabled');
+
+  }
+
 }
 
 function formSubmit(){
