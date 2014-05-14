@@ -87,5 +87,5 @@ post "/upload" do
   File.open('public/demo_app/images/' + params['file'][:filename], "w") do |f|
     f.write(params['file'][:tempfile].read)
   end
-  return "The file was successfully uploaded!"
+  return ["The image was successfully uploaded!",params['file'][:filename]].to_json
 end

@@ -196,7 +196,7 @@
       <button class="btn btn-primary" data-toggle="modal" data-target="#dialog-form-number-column" onclick="appendToBody();">
         Add Table
       </button>
-       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload-image" >Upload Image</button>
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload-image" onclick="imageToBody();" >Upload Image</button>
       <button type="button" class="btn btn-danger" onclick="removeImage();" >Remove Image</button>
     </div>
   </div>
@@ -333,7 +333,7 @@
       </div>
       <div class="modal-body table-dialog">
         <form method="post" id="uploadform" action="/upload">
-          <input type="file" name="file" value="choose file"/>
+          <input type="file" name="file" value="choose file" accept="image/gif, image/jpeg, image/png, image/bmp"/>
           <br/>          
           <input type="submit" value="upload!"/>
           <br/><br/>

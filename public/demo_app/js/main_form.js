@@ -3,6 +3,7 @@
   }
 
   var _ctrl_index = 1001;
+  var bg_image = "";
   function docReady() {
     console.log("document ready");
     compileTemplates();
@@ -164,7 +165,7 @@
     dialogContent+= '<button  class="btn btn-success ctrl-btn" type="submit" id="form_save">Form save</button>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
     dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
-    dialogContent+= '<div class="bg-image" style="background-image:url(/demo_app/images/img.jpg)">'
+    dialogContent+= '<div class="bg-image" style="background-image:url(/demo_app/images/'+bg_image+')">'
     dialogContent+= selected_content_html;
   
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
@@ -515,14 +516,23 @@
   }
 
   function appendToBody(){
-    $('#dialog-form-number-column').appendTo("body").modal('show');
+    $('#dialog-form-number-column').appendTo("body");
     $("#dialog-form-number-column").css("z-index", "1500");
+  }
+
+  function imageToBody(){
+    $('#upload-image').appendTo("body");
+    $("#upload-image").css("z-index", "1500");
   }
 
   $(document).ready(function(){
     function onsuccess(response,status){
       $("#loader").hide();
-      $("#onsuccessmsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');
+      res = JSON.parse(response);
+      $("#onsuccessmsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+res[0]+'</div>');
+      if(res[1]!='undefined') {
+        bg_image=res[1];
+      }
     }
     $("#uploadform").on('submit',function(){
       $("#loader").show();
@@ -534,3 +544,8 @@
       return false;
     });
   });
+
+  function removeImage(){
+    bg_image="";
+    alert("form background image removed successfully");
+  }
