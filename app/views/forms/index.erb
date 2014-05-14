@@ -1,15 +1,18 @@
 
   <link href="/demo_app/css/form_list.css" rel="stylesheet" media="screen" >
+   <script type="text/javascript" src="/demo_app/js/form_list.js"></script>
+
   <body>
     <ul class="nav nav-list">
       <li>
+        <a href="/forms/new" role="button" class="btn ctrl-btn btn-primary" id="new_form">New form</a>
         <h3>Forms list</h3>
         <ul class="nav nav-pills nav-stacked">
           <% @forms.each do |p|  %>
             <li><a href=<%="/forms/#{p['sId']}"%>> <%= p["title"] %> 
               <% if admin? %>
-               <button class="btn ctrl-btn btn-default">Response</button>
-                <button class="btn btn-danger ctrl-btn" >Delete</button>
+                <button class="btn ctrl-btn btn-default" id="response">Response</button>
+                <button class="btn btn-danger ctrl-btn" id="delete">Delete</button>
               <% end %>  
               </a>
             </li>

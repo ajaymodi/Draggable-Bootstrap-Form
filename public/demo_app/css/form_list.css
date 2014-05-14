@@ -20,3 +20,11 @@ body{
   margin-right:15px;
   margin-top:-5px;
 }
+
+#new_form{
+  background-color: blue;
+}
+
+#new_form{
+  float: right;
+}
