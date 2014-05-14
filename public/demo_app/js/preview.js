@@ -66,32 +66,28 @@ $('.shipping').keyup(function () {
 
 $(".response_submit").click(function(e){
   url = document.URL;
-  if(url.slice( -1 )=="/"){
-    e.preventDefault();
-  }else{
-    temp = url.split("/");
-    if($.isNumeric(temp[temp.length-1])){
-      if($('form').valid()){
-        id = temp[temp.length-1];
-        data = $('form').serialize()+"&form_id="+id;
-        $('form').append( "<div class='loadImage'/>" );
-        $.ajax({
-          url: $('form').attr("action"), 
-          type: 'POST',
-          data: data,
-          success: function(data){
-            $('form').removeClass( "loadImage" );
-            window.location.href = '/forms';
-          },error: function(error){
-            console.log(error);
-          }
-        });
-      }else{
-        e.preventDefault();
-        return false;
-      }
+  temp = url.split("/");
+  if($.isNumeric(temp[temp.length-1])){
+    if($('form').valid()){
+      id = temp[temp.length-1];
+      data = $('form').serialize()+"&form_id="+id;
+      $('form').append( "<div class='loadImage'/>" );
+      $.ajax({
+        url: $('form').attr("action"), 
+        type: 'POST',
+        data: data,
+        success: function(data){
+          $('form').removeClass( "loadImage" );
+          window.location.href = '/forms';
+        },error: function(error){
+          console.log(error);
+        }
+      });
     }else{
       e.preventDefault();
+      return false;
     }
+  }else{
+    e.preventDefault();
   }
 });
