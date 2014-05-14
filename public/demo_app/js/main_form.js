@@ -148,7 +148,7 @@
     selected_content.find("#form-title-div").remove();
     
     var selected_content_html = selected_content.html();
-    
+    var additionalField = "";
     var dialogContent = '<!DOCTYPE HTML>\n<html>\n<head>\n<meta charset="UTF-8">\n<title></title>\n';
     dialogContent+= '<link href="/demo_app/css/bootstrap.min.css" rel="stylesheet" media="screen">\n';
     dialogContent+= '<link href="/demo_app/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">\n';
@@ -158,25 +158,52 @@
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/bootstrap-datetimepicker.js"></script>\n';
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/bootstrap.min.js"></script>\n';
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/jquery.validate.min.js"></script>\n';
+    dialogContent+= '<script type="text/javascript" src="/demo_app/js/jquery.form.js"></script>\n';
     // dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     dialogContent+='<style>\n'+$("#content-styles").html()+'\n</style>\n';
       
     dialogContent+= '</head>\n<body>';
-    dialogContent+= '<button  class="btn btn-success ctrl-btn" type="submit" id="form_save">Form save</button>';
+    additionalField = dialogContent;
+    additionalField+= '<button  class="btn btn-success ctrl-btn" data-toggle="modal" type="submit" data-target="#formSave" id="form_save" onclick="formSubmit();">Save Form</button>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
+    additionalField+= '<legend>'+legend_text+'</legend>';
     dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
+    additionalField+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
     dialogContent+= '<div class="bg-image" style="background-image:url(/demo_app/images/'+bg_image+')">'
+    additionalField+= '<div class="bg-image" style="background-image:url(/demo_app/images/'+bg_image+')">'
     dialogContent+= selected_content_html;
-  
+    additionalField+= selected_content_html;
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
+    additionalField+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     // dialogContent+= '<script>\n $(".date-picker").focus(function() {var type = $(this).parent().find( "span" ).text();if (typeof type !== "undefined") { if(type=="DD/MM/YYYY") {$(".date-picker").datetimepicker({pickTime: false});} else{$(".date-picker").datetimepicker();}}});\n</script>\n';
-    dialogContent+= '</div></form>\n</body></html>';
-    dialogContent+='<br/><br/><b>Source code: </b><pre>'+$('<div/>').text(dialogContent).html();+'</pre>\n\n';
-    dialogContent = dialogContent.replace('\n</body></html>','');
-    dialogContent+= '\n</body></html>';
+    dialogContent+= '</div>\n</form>\n';
+    additionalField+= '</div>\n</form>\n';
+    additionalField+= '<div class="modal fade" id="formSave"  tabindex="-1" role="dialog" aria-labelledby="formdialog" aria-hidden="true">';
+    additionalField+= '<div class="modal-dialog">';
+    additionalField+= '<div class="modal-content">';
+    additionalField+= '<div class="modal-header">';
+    additionalField+= '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+    additionalField+= '<h3>Saving in process...</h3>';
+    additionalField+= '</div>';
+    additionalField+= '<div class="modal-body">';
+    additionalField+= '<div id="load_image" style="display:none;">';
+    additionalField+= '<center><img src="/demo_app/images/load.gif" /></center>';
+    additionalField+= '</div>';
+    additionalField+= 'Message :';
+    additionalField+= '<div id="onsuccessmsg" style="border:5px solid #CCC;padding:15px;"></div>';
+    additionalField+= '</div>';
+    additionalField+= '<div class="modal-footer">';
+    additionalField+= '<button type="button" class="btn btn-default" href="/forms" disabled>Go to Show</button>';
+    additionalField+= '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+    additionalField+= '</div></div></div></div>';
+    dialogContent+= '\n</body>\n</html>';
+    additionalField+= '\n</body>\n</html>';
+    additionalField+= '<br/><br/><b>Source code: </b><pre>'+$('<div/>').text(dialogContent).html();+'</pre>\n\n';
+    additionalField = additionalField.replace('\n</body>\n</html>','');
+    additionalField+= '\n</body>\n</html>';
     
     var win = window.open();
-    win.document.write(dialogContent);
+    win.document.write(additionalField);
   }
     
   if(typeof(console)=='undefined' || console==null) { console={}; console.log=function(){}}

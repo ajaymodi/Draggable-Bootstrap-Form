@@ -1,11 +1,6 @@
 
 enable :sessions
 
-db = $conn.db('demo_db')
-users = db.collection('users')
-forms = db.collection('forms')
-responses = db.collection('responses')
-
 helpers do
   def login?
     if session[:user].nil?
@@ -37,10 +32,6 @@ post "/form_submit" do
   erb :blank
 end
 
-post "/form_save" do
-  p params.length
-end
-
 get "/signup" do
   erb :signup
 end
@@ -50,7 +41,7 @@ post "/signup" do
   password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
     # save into mongodb
   begin
-    id = users.insert({
+    id = $users.insert({
       :_id => params[:email],
       :salt => password_salt,
       :passwordhash => password_hash 
@@ -65,7 +56,7 @@ post "/signup" do
 end
 
 post "/login" do
-  if user = users.find_one({:_id => params[:email]})
+  if user = $users.find_one({:_id => params[:email]})
     hash = BCrypt::Engine.hash_secret(params[:password], user["salt"])
     if user["passwordhash"] == hash
       session[:user] = params[:email]
@@ -89,3 +80,53 @@ post "/upload" do
   end
   return ["The image was successfully uploaded!",params['file'][:filename]].to_json
 end
+
+
+# Get all of our routes
+get "/forms" do
+  @forms = $forms.find()
+  erb :"forms/index"
+end
+ 
+
+get "/forms/new" do
+  redirect "/"
+end
+ 
+post "/forms" do
+  begin
+    cnt = 0
+    record = $forms.find().sort({"sId" => -1}).limit(1).first()
+    
+    if(record)
+      cnt = record["sId"].to_i + 1
+    else
+      cnt += 1
+    end
+
+    id = $forms.insert({
+      :sId => cnt,
+      :title => params[:title],
+      :form => params[:data]
+    })
+
+    return "The form was successfully submitted!"
+
+  rescue
+    return "Something went wrong. Please try again."  
+  end
+end
+ 
+# 
+get "/forms/:id" do
+  @form = $forms.find_one({:sId => params[:id]})
+  erb :"forms/show"
+end
+ 
+# 
+delete "/forms/:id" do
+  response = $forms.remove( {:sId => params[:id]});
+  redirect "/forms"
+end
+ 
+

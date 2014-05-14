@@ -12,14 +12,26 @@ $('.date-picker').mouseenter(function() {
   }
 });  
 
-$("#form_save").click(function(){
+
+function onsave(response,status){
+  $("#load_image").hide();
+  $("#onsavesmsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');  
+}
+
+function formSubmit(){
+  $("#load_image").show();
   data= ($($('pre')[0]).text());
-  data = {"0":data};
-  
-  $.post(''+self.location+'form_save', data, function(response) {
-    console.log(response);
-  });
-});
+  data = {"title":$('legend').text(),"data":data};
+  var options={
+    url     : ''+self.location+'forms',
+    data    : data,
+    success : onsave,
+    type    : 'POST'
+  };
+  $(this).ajaxSubmit(options);
+  return false;
+}
+
 
 $.each($('form').find("[name=addressField]"), function( index, value ) {
   if($(value).prop('checked')){
