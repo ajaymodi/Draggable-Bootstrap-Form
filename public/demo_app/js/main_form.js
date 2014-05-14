@@ -193,7 +193,7 @@
     additionalField+= '<div id="onsavemsg" style="border:5px solid #CCC;padding:15px;"></div>';
     additionalField+= '</div>';
     additionalField+= '<div class="modal-footer">';
-    additionalField+= '<button type="button" class="btn btn-default" id="redirect" disabled><a href="/forms">Go to Show</a></button>';
+    additionalField+= '<a href="/forms" class="btn btn-default" id="redirect" role="button" disabled>Go to Show</a>';
     additionalField+= '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
     additionalField+= '</div></div></div></div>';
     dialogContent+= '\n</body>\n</html>';

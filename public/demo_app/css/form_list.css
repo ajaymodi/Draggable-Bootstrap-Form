@@ -1,0 +1,22 @@
+body{
+  padding-top:1em;
+}
+
+.nav .nav-list {
+  margin-left:2em;
+  margin-top:2em;
+}
+
+.nav .nav-pills .nav-stacked {
+  margin-left:2em;
+}
+
+.nav-stacked > li >  a:hover{
+  background-color: cornsilk;
+}
+
+.btn{
+  float:left;
+  margin-right:15px;
+  margin-top:-5px;
+}

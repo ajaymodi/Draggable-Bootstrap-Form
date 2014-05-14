@@ -16,6 +16,10 @@ body {
   width:85%;
 }
 
+#redirect{
+  margin-top: 10px;
+}
+
 .fields{
   width:90%;
 }

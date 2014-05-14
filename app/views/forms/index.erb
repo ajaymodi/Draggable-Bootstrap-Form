@@ -1,11 +1,18 @@
 
-  <body bgcolor=white style="padding-top:1em;">
-    <ul class="nav nav-list"  style="margin-left:2em;margin-top:2em;">
+  <link href="/demo_app/css/form_list.css" rel="stylesheet" media="screen" >
+  <body>
+    <ul class="nav nav-list">
       <li>
         <h3>Forms list</h3>
-        <ul class="nav nav-pills nav-stacked" style="margin-left:2em;">
+        <ul class="nav nav-pills nav-stacked">
           <% @forms.each do |p|  %>
-            <li><a href=<%="/forms/#{p['sId']}"%>> <%= p["title"] %> </a></li>
+            <li><a href=<%="/forms/#{p['sId']}"%>> <%= p["title"] %> 
+              <% if admin? %>
+               <button class="btn ctrl-btn btn-default">Response</button>
+                <button class="btn btn-danger ctrl-btn" >Delete</button>
+              <% end %>  
+              </a>
+            </li>
           <% end %>  
         </ul>
       </li>

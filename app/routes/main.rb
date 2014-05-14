@@ -15,10 +15,10 @@ helpers do
   end
 
   def admin?
-    if(session[:user]=="admin@anupshinde.com")
-      session[:admin]= true
+    if(session[:user]=="abc@gmail.com")
+      return true
     else
-      session[:admin]= false
+      return false
     end
   end
 end
@@ -61,7 +61,6 @@ post "/login" do
     hash = BCrypt::Engine.hash_secret(params[:password], user["salt"])
     if user["passwordhash"] == hash
       session[:user] = params[:email]
-      admin?
       redirect "/"
     end
   end
