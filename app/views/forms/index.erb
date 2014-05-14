@@ -5,19 +5,24 @@
   <body>
     <ul class="nav nav-list">
       <li>
-        <a href="/forms/new" role="button" class="btn ctrl-btn btn-primary" id="new_form">New form</a>
+        <% if admin? %>
+          <a href="/forms/new" role="button" class="btn ctrl-btn btn-primary" id="new_form">New form</a>
+        <% end %>  
         <h3>Forms list</h3>
-        <ul class="nav nav-pills nav-stacked">
-          <% @forms.each do |p|  %>
-            <li><a href=<%="/forms/#{p['sId']}"%>> <%= p["title"] %> 
-              <% if admin? %>
-                <button class="btn ctrl-btn btn-default" id="response">Response</button>
-                <button class="btn btn-danger ctrl-btn" id="delete">Delete</button>
-              <% end %>  
-              </a>
-            </li>
-          <% end %>  
-        </ul>
+        <br/>
+         <table class="table table-hover">
+            <% @forms.each do |p|  %>
+              <tr>
+                <td style="width:80%">
+                  <a href=<%="/forms/#{p['sId']}"%>> &nbsp;&nbsp;&nbsp; <%= p["title"] %> </a>
+                </td>
+                <% if admin? %>
+                <td>  <button class="btn ctrl-btn btn-default response" f-id="<%= p['sId'] %>">Response</button> </td>
+                 <td>  <button class="btn btn-danger ctrl-btn delete" f-id="<%= p['sId'] %>">Delete</button> </td>
+                <% end %>  
+              </tr>  
+            <% end %>  
+        </table>
       </li>
     </ul>
   </body>

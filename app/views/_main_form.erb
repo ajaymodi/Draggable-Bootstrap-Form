@@ -61,7 +61,7 @@
           <div class="textbox well well-mini"><b></b> Text Input</div>
           <div class="model">
             <label class="control-label">Text Input</label>
-            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control" required="">
+            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control" name="textField" required>
           </div>
         </div>
 
@@ -69,7 +69,7 @@
           <div class="password well well-mini"><b></b> Password</div>
           <div class="model">
             <label class="control-label">Password</label>
-            <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control" required="">
+            <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control" name="passwordField" required minlength="5">
           </div>
         </div>
 
@@ -77,7 +77,7 @@
           <div class="phone well well-mini"><b></b> Phone</div>
           <div class="model">
             <label class="control-label">Phone</label>
-            <input type='tel' pattern='\d{3}[\-]\d{3}[\-]\d{4}' placeholder='Format: 999-999-9999' class="ctrl-phonebox form-control" required=""> 
+            <input type='tel' pattern='\d{3}[\-]\d{3}[\-]\d{4}' placeholder='Format: 999-999-9999' class="ctrl-phonebox form-control" name="phoneField" required> 
           </div>
         </div>
 
@@ -85,7 +85,7 @@
           <div class="email well well-mini"><b></b> Email</div>
           <div class="model">
             <label class="control-label">Email</label>
-            <input placeholder="Email address"  type="email" name="email" class="ctrl-emailbox form-control" required="">
+            <input placeholder="Email address"  type="email" name="email" class="ctrl-emailbox form-control" name="emailField" required>
           </div>
         </div>
 
@@ -93,10 +93,10 @@
           <div class="combobox well well-mini"><b></b>Combobox</div>
           <div class="model">
             <label class="control-label">Combobox</label>
-            <select class="ctrl-combobox form-control">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+            <select class="ctrl-combobox form-control" name="comboField">
+              <option  value="option1" required>Option 1</option>
+              <option  value="option2">Option 2</option>
+              <option  value="option3">Option 3</option>
             </select>
           </div>
         </div>
@@ -106,9 +106,10 @@
           <div class="model">
             <label class="control-label" style="text-align:left">Radio button</label>
             <div  class="ctrl-radiogroup radio">
-              <span style="display:block;"><input type="radio" name="radioField" value="option1">Option 1</span>
+              <span style="display:block;"><input type="radio" name="radioField" value="option1" required>Option 1</span>
               <span style="display:block;"><input type="radio" name="radioField" value="option2">Option 2</span>
               <span style="display:block;"><input type="radio" name="radioField" value="option3">Option 3</span>
+              <label for="radioField" class="error" style="display: none;">This field is required.</label>
             </div>
           </div>
         </div>
@@ -118,9 +119,10 @@
           <div class="model">
             <label class="control-label" >Checkbox</label>
             <div class="ctrl-checkboxgroup checkbox">
-              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option1">Option 1</span>
+              <span style="display:block;"><input type="checkbox" name="checkboxField" value="option1" required>Option 1</span>
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option2">Option 2</span>
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option3">Option 3</span>
+              <label for="checkboxField" class="error" style="display: none;">This field is required.</label>
             </div>
           </div>
         </div>
@@ -130,10 +132,10 @@
           <div class="model">
             <label class="control-label">Multiselect</label>
             <div >
-              <select multiple="multiple" style="width:150px" class="ctrl-selectmultiplelist form-control">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+              <select name="multiField[]" multiple="multiple" style="width:150px" class="ctrl-selectmultiplelist form-control" required >
+                <option  value="option1" >Option 1</option>
+                <option  value="option2">Option 2</option>
+                <option  value="option3">Option 3</option>
               </select>
             </div>
           </div>
@@ -146,7 +148,7 @@
           <div class="model">
             <label class="control-label">Date</label>
             <span class="ctrl-date">MM/DD/YYYY</span>
-            <input type="text" placeholder="Select Date..." class="ctrl-date form-control date-picker">
+            <input type="text" placeholder="Select Date..." class="ctrl-date form-control date-picker" name="dateField" required>
           </div>
         </div>
 
@@ -154,7 +156,7 @@
           <div class="displaytext well well-mini"><b></b> TextArea</div>
           <div class="model">
             <label class="control-label">TextArea</label>
-            <textarea class="ctrl-textarea form-control" rows="3"></textarea>
+            <textarea class="ctrl-textarea form-control" rows="3" required name="textareaField"></textarea>
           </div>
         </div>
 
@@ -163,9 +165,9 @@
           <div class="displayaddress well well-mini"><b></b> Address</div>
           <div class="model">
             <label class="control-label">Shipping & Billing Address</label>
-            <textarea placeholder = "Enter shipping address here..." class="ctrl-address shipping form-control" rows="3"></textarea>
+            <textarea placeholder = "Enter shipping address here..." class="ctrl-address shipping form-control" rows="3" name="shippingField" required></textarea>
             <span style="display:block;"><input class="ctrl-address checkAddress" type="checkbox" name="addressField" >Same?</span>
-            <textarea placeholder = "Enter billing address here..." class="ctrl-address billing form-control" rows="3"></textarea>
+            <textarea placeholder = "Enter billing address here..." class="ctrl-address billing form-control" rows="3" name="billingField"></textarea>
           </div>
         </div>
 
@@ -177,7 +179,7 @@
           <button class="btn btn-primary ctrl-btn" onclick="return false;">Primary Button</button>
         </div>
         <div class="selectorField draggableField">
-          <button class="btn btn-success ctrl-btn" type="submit"><i class="icon-ok-sign icon-white"></i> Submit Button</button>
+          <button class="btn btn-success ctrl-btn response_submit" type="submit"><i class="icon-ok-sign icon-white"></i> Submit Button</button>
         </div>
         <div class="selectorField draggableField">
           <button class="btn btn-danger ctrl-btn" type="reset"><i class="icon-trash icon-white"></i> Reset Button</button>
