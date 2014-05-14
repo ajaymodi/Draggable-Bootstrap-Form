@@ -83,3 +83,9 @@ get "/logout" do
   redirect "/"
 end
 
+post "/upload" do 
+  File.open('public/demo_app/images/' + params['file'][:filename], "w") do |f|
+    f.write(params['file'][:tempfile].read)
+  end
+  return "The file was successfully uploaded!"
+end

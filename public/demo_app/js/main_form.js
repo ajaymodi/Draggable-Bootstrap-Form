@@ -164,11 +164,12 @@
     dialogContent+= '<button  class="btn btn-success ctrl-btn" type="submit" id="form_save">Form save</button>';
     dialogContent+= '<legend>'+legend_text+'</legend>';
     dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
+    dialogContent+= '<div class="bg-image" style="background-image:url(/demo_app/images/img.jpg)">'
     dialogContent+= selected_content_html;
   
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     // dialogContent+= '<script>\n $(".date-picker").focus(function() {var type = $(this).parent().find( "span" ).text();if (typeof type !== "undefined") { if(type=="DD/MM/YYYY") {$(".date-picker").datetimepicker({pickTime: false});} else{$(".date-picker").datetimepicker();}}});\n</script>\n';
-    dialogContent+= '</form>\n</body></html>';
+    dialogContent+= '</div></form>\n</body></html>';
     dialogContent+='<br/><br/><b>Source code: </b><pre>'+$('<div/>').text(dialogContent).html();+'</pre>\n\n';
     dialogContent = dialogContent.replace('\n</body></html>','');
     dialogContent+= '\n</body></html>';
@@ -517,3 +518,19 @@
     $('#dialog-form-number-column').appendTo("body").modal('show');
     $("#dialog-form-number-column").css("z-index", "1500");
   }
+
+  $(document).ready(function(){
+    function onsuccess(response,status){
+      $("#loader").hide();
+      $("#onsuccessmsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');
+    }
+    $("#uploadform").on('submit',function(){
+      $("#loader").show();
+      var options={
+        url     : $(this).attr("action"),
+        success : onsuccess
+      };
+      $(this).ajaxSubmit(options);
+      return false;
+    });
+  });

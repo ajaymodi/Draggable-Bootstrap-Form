@@ -1,5 +1,6 @@
   <link href="/demo_app/css/main_form.css" rel="stylesheet" media="screen" >
   <script type="text/javascript" src="/demo_app/js/main_form.js"></script>
+  <script type="text/javascript" src="/demo_app/js/jquery.form.js"></script>
 
   <div class="container col-sm-12 col-md-12">
     <div class="navbar navbar-fixed-top navbar-default">
@@ -191,10 +192,12 @@
   <!-- Preview button -->
   <div class="row-fluid"> 
     <div class="span12">
-      <button class="btn btn-primary  btn-lg" value="Preview" onclick="preview();"/> Preview </button>
-      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#dialog-form-number-column" onclick="appendToBody();">
+      <button class="btn btn-primary" value="Preview" onclick="preview();"/> Preview </button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#dialog-form-number-column" onclick="appendToBody();">
         Add Table
       </button>
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload-image" >Upload Image</button>
+      <button type="button" class="btn btn-danger" onclick="removeImage();" >Remove Image</button>
     </div>
   </div>
 
@@ -300,8 +303,6 @@
   </div>
 </script>
 
-<!-- End of templates -->
-
 <div class="modal fade" id="dialog-form-number-column"  tabindex="-1" role="dialog" aria-labelledby="tabledialog" aria-hidden="true">
   <div class="modal-dialog table-dialog">
     <div class="modal-content">
@@ -323,6 +324,32 @@
   </div>
 </div>
 
+<div class="modal fade" id="upload-image"  tabindex="-1" role="dialog" aria-labelledby="imagedialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Upload Image</h3>
+      </div>
+      <div class="modal-body table-dialog">
+        <form method="post" id="uploadform" action="/upload">
+          <input type="file" name="file" value="choose file"/>
+          <br/>          
+          <input type="submit" value="upload!"/>
+          <br/><br/>
+          <div id="loader" style="display:none;">
+            <center><img src="demo_app/images/load.gif" /></center>
+          </div>
+          Message :
+          <div id="onsuccessmsg" style="border:5px solid #CCC;padding:15px;"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <span style="position:absolute; padding-right:6px; height:10px;" id="divDeleteTable">
   <a href="#" onclick="removeTable()"><img src="demo_app/images/delete.png" alt=""></a>

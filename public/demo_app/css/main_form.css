@@ -34,9 +34,14 @@ body {
   margin-right: 10px;
   margin-bottom: 10px;
 }
-/*.draggableField:hover{
+
+.draggableField:hover{
   background-color: #ccffcc;
-}*/
+}
+
+.bg-image{
+  background-size: 100%;
+}
 
 .selectorField .textbox b, .selectorField .password b,.selectorField .phone b, .selectorField .email b, .selectorField .combobox b, .selectorField .radiogroup b, .selectorField .checkboxgroup b, .selectorField .selectmultiple b,
 .selectorField .displaydate b, .selectorField .displaytext b, .selectorField .displayaddress b {
