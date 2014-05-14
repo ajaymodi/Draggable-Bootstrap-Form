@@ -121,14 +121,14 @@ get "/forms/:id" do
 end
  
 # 
-delete "/forms/:id" do
-  response = $forms.remove( {:sId => params[:id].to_i});
+delete "/forms" do
+  response = $forms.remove( {:sId => ((params[:id].empty?)?params[:id]:params[:id].to_i)});
   redirect "/forms"
 end
  
 get "/responses/:id" do
   begin
-    @responses = $responses.find_one({:fId => params[:id].to_i})
+    @responses = $responses.find_one({:fId => ((params[:id].empty?)?params[:id]:params[:id].to_i)})
     return @responses.to_json
   rescue
     return "Something went wrong. Please try again.".to_json  
