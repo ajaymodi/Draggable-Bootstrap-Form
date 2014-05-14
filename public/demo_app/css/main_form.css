@@ -98,6 +98,16 @@ col {
     width:200px;
 }
 
+.loadImage {
+  background:url("../images/load.gif") no-repeat center center;
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  margin: -25px 0 0 -25px;
+  z-index: 5000;
+}
 
 <style id="content-styles">
     /* Styles that are also copied for Preview */

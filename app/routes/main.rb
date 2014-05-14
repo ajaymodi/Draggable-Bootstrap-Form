@@ -29,10 +29,6 @@ get "/" do
   erb :index
 end
 
-post "/form_submit" do
-  erb :blank
-end
-
 get "/signup" do
   erb :signup
 end
@@ -75,16 +71,17 @@ get "/logout" do
 end
 
 post "/upload" do 
-  File.open('public/demo_app/images/' + params['file'][:filename], "w") do |f|
+  file_name = Time.now.to_i.to_s + params['file'][:filename]
+  File.open('public/demo_app/images/' + file_name, "w") do |f|
     f.write(params['file'][:tempfile].read)
   end
-  return ["The image was successfully uploaded!",params['file'][:filename]].to_json
+  return ["The image was successfully uploaded!",file_name].to_json
 end
 
 
 # Get all of our routes
 get "/forms" do
-  @forms = $forms.find()
+  @forms = $forms.find().sort({sId:1})
   erb :"forms/index"
 end
  
@@ -129,4 +126,26 @@ delete "/forms/:id" do
   redirect "/forms"
 end
  
+get "/responses/:id" do
+  begin
+    @responses = $responses.find_one({:fId => params[:id].to_i})
+    return @responses.to_json
+  rescue
+    return "Something went wrong. Please try again.".to_json  
+  end
+end
 
+post "/responses" do
+  h = {:fId => params[:form_id]}
+  params.delete("form_id")
+  params.each do |k,v|
+    h[k]=v
+  end
+  begin
+    $responses.insert(h)
+    flash[:success] = "The response was successfully submitted!"
+    redirect '/forms'
+  rescue
+    return "Something went wrong. Please try again."  
+  end
+end

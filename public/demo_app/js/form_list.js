@@ -9,7 +9,7 @@ $(document).ready(function() {
 
           var parent = $(this).closest('tr');
           $.ajax({
-              type: 'get',
+              type: 'DELETE',
               url: 'delete.php', // <- replace this with your url here
               data: 'ajax=1&delete=' + $(this).attr('id'),
               beforeSend: function() {

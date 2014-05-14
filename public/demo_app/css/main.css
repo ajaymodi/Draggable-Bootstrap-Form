@@ -5,3 +5,9 @@
   text-align: center;
 }
 
+.field_with_success {
+  color: green;
+  margin-left: 5px;
+  font-size: 20px;
+  text-align: center;
+}

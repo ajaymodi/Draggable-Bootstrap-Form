@@ -20,6 +20,10 @@
       <p class= "field_with_errors">
         <%= flash[:error] %>
       </p>
+    <% elsif flash[:success] %>
+      <p class= "field_with_success">
+        <%= flash[:success] %>
+      </p>  
     <% end %>
     <%= yield %>
   </body>
