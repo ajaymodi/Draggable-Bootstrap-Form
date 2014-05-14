@@ -165,12 +165,12 @@
     dialogContent+= '</head>\n<body>';
     additionalField = dialogContent;
     additionalField+= '<button  class="btn btn-success ctrl-btn" data-toggle="modal" type="submit" data-target="#formSave" id="form_save" onclick="formSubmit();">Save Form</button>';
-    dialogContent+= '<legend>'+legend_text+'</legend>';
-    additionalField+= '<legend>'+legend_text+'</legend>';
-    dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
-    additionalField+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'form_submit"  method="post">'
     dialogContent+= '<div class="bg-image" style="background-image:url(/demo_app/images/'+bg_image+')">'
     additionalField+= '<div class="bg-image" style="background-image:url(/demo_app/images/'+bg_image+')">'
+    dialogContent+= '<legend>'+legend_text+'</legend>';
+    additionalField+= '<legend>'+legend_text+'</legend>';
+    dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'responses"  method="post">'
+    additionalField+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'responses"  method="post">'
     dialogContent+= selected_content_html;
     additionalField+= selected_content_html;
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
