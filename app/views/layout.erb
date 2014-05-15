@@ -17,6 +17,20 @@
     <script type="text/javascript" src="/demo_app/js/jquery.form.js"></script>
   </head>
   <body>
+    <% if login? %>
+      <div class="container col-sm-12 col-md-12">
+        <div class="navbar navbar-fixed-top navbar-default">
+          <div class="container">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                  <li> <a id="logout" href="/logout">Logout</a> </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <br/><br/><br/><br/>
+  <% end %>
     <!-- handling flash messages -->
     <% if flash[:error] %>
       <p class= "field_with_errors">

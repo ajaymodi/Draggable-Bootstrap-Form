@@ -9,13 +9,22 @@ end
 
 # Get all of our routes
 get "/forms" do
-  @forms = $forms.find().sort({sId:1})
-  erb :"forms/index"
+  if !login?
+    redirect "/" 
+  else 
+    @forms = $forms.find().sort({sId:1})
+    erb :"forms/index"
+  end
 end
  
 
 get "/forms/new" do
-  redirect "/"
+  if admin?
+    erb :"forms/new"
+  else
+    flash[:error]="restricted access"
+    redirect "/"
+  end
 end
  
 post "/forms" do
@@ -44,13 +53,18 @@ end
  
 # 
 get "/forms/:id" do
-  @form = $forms.find_one({:sId => params[:id].to_i})
-  erb :"forms/show"
+  if !login?
+    redirect "/" 
+  else
+    @form = $forms.find_one({:sId => params[:id].to_i})
+    erb :"forms/show"
+  end
 end
  
 # 
 delete "/forms" do
   response = $forms.remove( {:sId => ((params[:id].empty?)?params[:id]:params[:id].to_i)});
+  flash[:success] = "The form was deleted successfully!"
   redirect "/forms"
 end
  

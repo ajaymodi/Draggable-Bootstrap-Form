@@ -21,16 +21,22 @@ helpers do
       return false
     end
   end
+
+  def set_path path
+    if login? 
+      redirect "/forms" 
+    else 
+      erb path
+    end  
+  end 
 end
 
-
-
 get "/" do
-  erb :index
+  set_path :index
 end
 
 get "/signup" do
-  erb :signup
+  set_path :signup
 end
 
 post "/signup" do

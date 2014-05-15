@@ -161,8 +161,8 @@
     additionalField+= '<div class="bg-image" style="background-image:url(/demo_app/images/'+bg_image+')">'
     dialogContent+= '<legend>'+legend_text+'</legend>';
     additionalField+= '<legend>'+legend_text+'</legend>';
-    dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'responses"  method="post">'
-    additionalField+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="'+self.location+'responses"  method="post">'
+    dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="/responses"  method="post">'
+    additionalField+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="/responses"  method="post">'
     dialogContent+= selected_content_html;
     additionalField+= selected_content_html;
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
@@ -194,7 +194,7 @@
     additionalField = additionalField.replace('\n</body>\n</html>','');
     additionalField+= '\n</body>\n</html>';
     
-    var win = window.open();
+    var win = window.open('about:blank');
     win.document.write(additionalField);
   }
     

@@ -31,7 +31,7 @@ function formSubmit(){
   data= ($($('pre')[0]).text());
   data = {"title":$('legend').text(),"data":data};
   var options={
-    url     : ''+self.location+'forms',
+    url     : '/forms',
     data    : data,
     success : onsave,
     type    : 'POST'
