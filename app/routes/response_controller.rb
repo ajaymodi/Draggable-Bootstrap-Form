@@ -5,7 +5,8 @@ get "/responses/:id" do
       @responses = Response.response_find params[:id]
       h = {}
       @responses.each_with_index do |p,i|
-        h[i] = p.to_s+"<br/>"
+        key = "<br/>"+i.to_s
+        h[key] = p
       end
       if(h.empty?)
         return "No responses.".to_json  
@@ -23,7 +24,7 @@ end
 
 #save the response
 post "/responses" do
-  h = {:fId => params[:form_id]}
+  h = {:fId => params[:form_id],:uId => session[:user]}
   params.delete("form_id")
   params.each do |k,v|
     h[k]=v
