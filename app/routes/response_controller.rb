@@ -1,4 +1,4 @@
-
+#fetch response for the form
 get "/responses/:id" do
   if admin?
     begin
@@ -21,6 +21,7 @@ get "/responses/:id" do
   end
 end
 
+#save the response
 post "/responses" do
   h = {:fId => params[:form_id]}
   params.delete("form_id")

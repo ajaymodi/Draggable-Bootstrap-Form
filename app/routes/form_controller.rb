@@ -1,3 +1,4 @@
+# Image upload controller
 post "/upload" do 
   file_name = Time.now.to_i.to_s + params['file'][:filename]
   File.open('public/demo_app/images/' + file_name, "w") do |f|
@@ -6,8 +7,7 @@ post "/upload" do
   return ["The image was successfully uploaded!",file_name].to_json
 end
 
-
-# Get all of our routes
+# get the list of forms available
 get "/forms" do
   if !login?
     redirect "/" 
@@ -17,7 +17,7 @@ get "/forms" do
   end
 end
  
-
+#new form setup
 get "/forms/new" do
   if admin?
     erb :"forms/new"
@@ -27,6 +27,7 @@ get "/forms/new" do
   end
 end
  
+#form submit handling
 post "/forms" do
   begin
     cnt = 0
@@ -51,7 +52,7 @@ post "/forms" do
   end
 end
  
-# 
+# get a particular form
 get "/forms/:id" do
   if !login?
     redirect "/" 
@@ -61,7 +62,7 @@ get "/forms/:id" do
   end
 end
  
-# 
+# delete form 
 delete "/forms" do
   response = $forms.remove( {:sId => ((params[:id].empty?)?params[:id]:params[:id].to_i)});
   flash[:success] = "The form was deleted successfully!"

@@ -31,14 +31,17 @@ helpers do
   end 
 end
 
+#default root
 get "/" do
   set_path :index
 end
 
+#signup action
 get "/signup" do
   set_path :signup
 end
 
+#handling signup data after submitting
 post "/signup" do
   password_salt = BCrypt::Engine.generate_salt
   password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
@@ -58,6 +61,7 @@ post "/signup" do
   end
 end
 
+#handling login after submitting
 post "/login" do
   if user = $users.find_one({:_id => params[:email]})
     hash = BCrypt::Engine.hash_secret(params[:password], user["salt"])
@@ -71,6 +75,7 @@ post "/login" do
   redirect '/'
 end
 
+#logout action
 get "/logout" do
   session[:user] = nil
   redirect "/"
