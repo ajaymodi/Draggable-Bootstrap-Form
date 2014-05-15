@@ -17,7 +17,7 @@
                   <a href=<%="/forms/#{p['sId']}"%>> &nbsp;&nbsp;&nbsp; <%= p["title"] %> </a>
                 </td>
                 <% if admin? %>
-                <td>  <button class="btn ctrl-btn btn-default response" f-id="<%= p['sId'] %>">Response</button> </td>
+                <td>  <button class="btn ctrl-btn btn-default response" data-toggle="modal" data-target="#responseLoad" f-id="<%= p['sId'] %>" onclick="responseLoad(<%= p['sId'] %>);">Response</button> </td>
                  <td>  <button class="btn btn-danger ctrl-btn delete" f-id="<%= p['sId'] %>">Delete</button> </td>
                 <% end %>  
               </tr>  
@@ -25,4 +25,26 @@
         </table>
       </li>
     </ul>
-  </body>
+    <div class="modal fade" id="responseLoad"  tabindex="-1" role="dialog" aria-labelledby="responsedialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>Responses</h3>
+          </div>
+          <div class="modal-body">
+          <div id="load_image" style="display:none;">
+          <center><img src="/demo_app/images/load.gif" /></center>
+          </div>
+          Message :
+          <div id="onresponsemsg" style="border:5px solid #CCC;padding:15px;"></div>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+

@@ -128,8 +128,16 @@ end
  
 get "/responses/:id" do
   begin
-    @responses = $responses.find_one({:fId => ((params[:id].empty?)?params[:id]:params[:id].to_i)})
-    return @responses.to_json
+    @responses = $responses.find({:fId => params[:id]})
+    h = {}
+    @responses.each_with_index do |p,i|
+      h[i] = p.to_s+"<br/>"
+    end
+    if(h.empty?)
+      return "No responses.".to_json  
+    else
+      return h.to_json
+    end
   rescue
     return "Something went wrong. Please try again.".to_json  
   end

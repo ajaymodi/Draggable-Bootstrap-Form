@@ -25,5 +25,26 @@ $(document).ready(function() {
 
 
     });
+
+
+    
  
 });
+
+function responseLoad(form_id) {
+      $("#load_image").show();
+      a = self.location["href"];
+      var options={
+        url     : ''+a.slice(0,-5)+'responses/'+form_id,
+        success : onresponse,
+        type    : 'GET'
+      };
+      $(this).ajaxSubmit(options);
+      return false;
+    }
+
+function onresponse(response,status){
+  $("#load_image").hide();
+  $("#onresponsemsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');  
+}
+
