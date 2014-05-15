@@ -47,12 +47,7 @@ post "/signup" do
   password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
     # save into mongodb
   begin
-    id = $users.insert({
-      :_id => params[:email],
-      :salt => password_salt,
-      :passwordhash => password_hash 
-    })
-
+    id = Query.insert_user(params[:email],password_salt,password_hash)
     session[:user] = params[:email]
     redirect "/"
   rescue
@@ -63,7 +58,7 @@ end
 
 #handling login after submitting
 post "/login" do
-  if user = $users.find_one({:_id => params[:email]})
+  if user = Query.find_user(params[:email])
     hash = BCrypt::Engine.hash_secret(params[:password], user["salt"])
     if user["passwordhash"] == hash
       session[:user] = params[:email]

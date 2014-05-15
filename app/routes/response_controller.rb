@@ -2,7 +2,7 @@
 get "/responses/:id" do
   if admin?
     begin
-      @responses = $responses.find({:fId => params[:id]})
+      @responses = Response.response_find params[:id]
       h = {}
       @responses.each_with_index do |p,i|
         h[i] = p.to_s+"<br/>"
@@ -29,7 +29,7 @@ post "/responses" do
     h[k]=v
   end
   begin
-    $responses.insert(h)
+    Response.response_insert h
     flash[:success] = "The response was successfully submitted!"
     redirect '/forms'
   rescue

@@ -12,7 +12,7 @@ get "/forms" do
   if !login?
     redirect "/" 
   else 
-    @forms = $forms.find().sort({sId:1})
+    @forms = Form.find_all
     erb :"forms/index"
   end
 end
@@ -31,7 +31,7 @@ end
 post "/forms" do
   begin
     cnt = 0
-    record = $forms.find().sort({"sId" => -1}).limit(1).first()
+    record = Form.find_max
     
     if(record)
       cnt = record["sId"].to_i + 1
@@ -39,12 +39,7 @@ post "/forms" do
       cnt += 1
     end
 
-    id = $forms.insert({
-      :sId => cnt,
-      :title => params[:title],
-      :form => params[:data]
-    })
-
+    id = Form.form_insert(cnt,params[:title],params[:data])
     return "The form was successfully submitted!"
 
   rescue
@@ -57,14 +52,14 @@ get "/forms/:id" do
   if !login?
     redirect "/" 
   else
-    @form = $forms.find_one({:sId => params[:id].to_i})
+    @form = Form.find_record params[:id]
     erb :"forms/show"
   end
 end
  
 # delete form 
 delete "/forms" do
-  response = $forms.remove( {:sId => ((params[:id].empty?)?params[:id]:params[:id].to_i)});
+  response = Form.form_delete params[:id]
   flash[:success] = "The form was deleted successfully!"
   redirect "/forms"
 end

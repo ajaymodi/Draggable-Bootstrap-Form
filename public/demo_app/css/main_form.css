@@ -1,6 +1,10 @@
 body {
   font-size:14px;
 }
+
+#logout{
+  color:white;
+}
 .error{
   display: block;
 }
