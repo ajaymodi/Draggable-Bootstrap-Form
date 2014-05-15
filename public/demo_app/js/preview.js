@@ -1,3 +1,4 @@
+//date picker display when mouse enter
 $('.date-picker').mouseenter(function() {
   var type = $(this).parent().find( "span" ).text();
   if (typeof type !== "undefined") {
@@ -13,6 +14,7 @@ $('.date-picker').mouseenter(function() {
 });  
 
 
+//form submitting callback handle
 function onsave(response,status){
   $("#load_image").hide();
   $("#onsavemsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');  
@@ -23,6 +25,7 @@ function onsave(response,status){
 
 }
 
+//form submit ajax handling
 function formSubmit(){
   $("#load_image").show();
   data= ($($('pre')[0]).text());
@@ -37,8 +40,10 @@ function formSubmit(){
   return false;
 }
 
+//form validate
 $('form').validate();
 
+//shipping and billing address field handling
 $.each($('form').find("[name=addressField]"), function( index, value ) {
   if($(value).prop('checked')){
     var me = $(value).parent().parent();
@@ -47,6 +52,7 @@ $.each($('form').find("[name=addressField]"), function( index, value ) {
   }
 });
 
+//checkaddress field handling for shipping and billing address
 $('.checkAddress').click(function () {
     var me = $(this).parent().parent();
     if(this.checked){
@@ -64,6 +70,7 @@ $('.shipping').keyup(function () {
   }
 });
 
+//response ajax handling
 $(".response_submit").click(function(e){
   url = document.URL;
   temp = url.split("/");

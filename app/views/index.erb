@@ -1,6 +1,7 @@
 <% if login? %>
   <%= erb :_main_form %>
 <% else %>
+  <!-- login form -->
   <div class="container">
     <form class="form-signin" id="signin" role="form" action="/login"  method="post">
       <h2 class="form-signin-heading">Please sign in</h2>

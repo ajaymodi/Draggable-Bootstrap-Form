@@ -1,3 +1,4 @@
+//login and signup validation
 $(document).ready(function() {
   $("#signin").validate();
   $("#signup").validate({

@@ -1,3 +1,4 @@
+  //make draggable form elements 
   function makeDraggable() {
     $(".selectorField").draggable({ helper: "clone",stack: "div",cursor: "move", cancel: null  });
   }
@@ -51,8 +52,6 @@
       connectWith: ".droppedFields"
     }).disableSelection();
 
-
-    // Affichage du div pour la suppression d'un tableau
     $("#divDeleteTable").hide();
     
     $('.droppedFields').mouseenter(function () {
@@ -73,6 +72,7 @@
       $("#divDeleteTable").show();
     });
 
+    //adding table column slider
     $("#sliderNbColumns").slider({
       min: 1,
       max: 5,
@@ -84,14 +84,6 @@
     
     $("#nbColumns").html($("#sliderNbColumns").slider("value"));
 
-
-    // // Permet le trie des "tableaux"
-    // $("#selected-content").sortable({
-    //   cancel: null,      
-    //   start: function (event, ui) {
-    //     $("#divDeleteTable").hide();
-    //   }
-    // }).disableSelection();
   }
   
 
@@ -319,7 +311,7 @@
     form.find("[name=name]").val(ctrlText[0].name);
     form.find("[name=textarea]").val(ctrlText.text());
   }
-
+  //method to load values for address field
   load_values.address = function (ctrl_type, ctrl_id) {    
     var form = $("#theForm");
     var div_ctrl = $("#" + ctrl_id);
@@ -441,6 +433,7 @@
     save_changes_simple_text(values, ".ctrl-date", values.dateformat)
   }
 
+  //common method for date and textarea
   function save_changes_simple_text(values, ctrl, value) {
     var div_ctrl = $("#" + values.forCtrl);
     var ctrlText = div_ctrl.find(ctrl);
@@ -448,6 +441,7 @@
     ctrlText[0].name = values.name;
   }
 
+  //specific method to save changes for address field
   save_changes.address = function (values) {
     var div_ctrl = $("#" + values.forCtrl);
     var ctrlText = div_ctrl.find(".ctrl-address");
@@ -542,16 +536,19 @@
     }
   }
 
+  //table dialog append to body and zindex set
   function appendToBody(){
     $('#dialog-form-number-column').appendTo("body");
     $("#dialog-form-number-column").css("z-index", "1500");
   }
 
+  //image upload dialog append to body and zindex set
   function imageToBody(){
     $('#upload-image').appendTo("body");
     $("#upload-image").css("z-index", "1500");
   }
 
+  //image upload ajax handling
   $(document).ready(function(){
     function onsuccess(response,status){
       $("#loader").hide();
@@ -572,6 +569,7 @@
     });
   });
 
+  //remove background image from form
   function removeImage(){
     bg_image="";
     alert("form background image removed successfully");
