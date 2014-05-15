@@ -569,6 +569,8 @@
       }
     }
     $("#uploadform").on('submit',function(){
+      $("#onsuccessmsg").text("");
+      $("#msg").text("");
       $("#loader").show();
       var options={
         url     : $(this).attr("action"),
