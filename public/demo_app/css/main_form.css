@@ -1,6 +1,10 @@
 body {
   font-size:14px;
 }
+.error{
+  display: block;
+}
+
 .activeDroppable {
   background-color: #eeffee;
 }
@@ -96,6 +100,23 @@ body {
 
 col {
     width:200px;
+}
+
+.navbar ul.nav li {
+    margin-left: 1000px;
+}
+
+.navbar{
+  background-color: black;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #fff;
+  background-color: blue;
 }
 
 .loadImage {

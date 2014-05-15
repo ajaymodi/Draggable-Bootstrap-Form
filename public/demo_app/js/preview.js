@@ -9,7 +9,6 @@ $('.date-picker').mouseenter(function() {
     } else{
       $(this).datetimepicker();
     }
-
   }
 });  
 
@@ -20,9 +19,7 @@ function onsave(response,status){
   $("#onsavemsg").html("Status :<b>"+status+'</b><br><br>Response Data :<div id="msg" style="border:5px solid #CCC;padding:15px;">'+response+'</div>');  
   if(status=="success"){
     $("#redirect").removeAttr('disabled');
-
   }
-
 }
 
 //form submit ajax handling
@@ -41,7 +38,9 @@ function formSubmit(){
 }
 
 //form validate
-$('form').validate();
+$('form').validate({
+    errorLabelContainer: $(".errorSet")
+  });
 
 //shipping and billing address field handling
 $.each($('form').find("[name=addressField]"), function( index, value ) {
@@ -97,4 +96,13 @@ $(".response_submit").click(function(e){
   }else{
     e.preventDefault();
   }
+});
+
+
+$.validator.addMethod('customphone', function (value, element) {
+    return this.optional(element) || /[0-9]{10}$/.test(value);
+}, "Please enter a valid phone number");
+
+$.validator.addClassRules('customphone', {
+    customphone: true
 });

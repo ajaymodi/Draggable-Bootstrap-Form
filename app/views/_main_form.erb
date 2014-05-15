@@ -7,9 +7,16 @@
   <b class="text-error">All components may not work correctly on IE 8 or below </b><br/><br/>
   <![endif]-->
  <legend>Simple form builder demo</legend>
-
   <div class="container-fluid">
     <div class="span10">
+        <div >
+          <label class="control-label" style="text-align:left">Error Fields setup</label>
+          <div  class="ctrl-radiogroup errorField">
+            <input type="radio" name="errorField" value="inline" checked>Inline
+            <input type="radio" name="errorField" value="top">Top
+            <input type="radio" name="errorField" value="bottom">Bottom
+          </div>
+        </div>
       <div class="span12" id="selected-content">
         <div class="form-group" id="form-title-div">
           <input type="text" class="form-control" placeholder="Type form title here" id="form-title" />
@@ -50,7 +57,7 @@
           <div class="textbox well well-mini"><b></b> Text Input</div>
           <div class="model">
             <label class="control-label">Text Input</label>
-            <input type="text" placeholder="Your Text Here..." class="ctrl-textbox form-control" name="textField" required>
+            <input type="text" placeholder="Your Text Here..." title="Text field is required." class="ctrl-textbox form-control" name="textField" required>
           </div>
         </div>
 
@@ -58,7 +65,7 @@
           <div class="password well well-mini"><b></b> Password</div>
           <div class="model">
             <label class="control-label">Password</label>
-            <input type="password" placeholder="Password ..." class="ctrl-passwordbox form-control" name="passwordField" required minlength="5">
+            <input type="password" placeholder="Password ..." title="Password field is required." class="ctrl-passwordbox form-control" name="passwordField" required minlength="5">
           </div>
         </div>
 
@@ -66,7 +73,7 @@
           <div class="phone well well-mini"><b></b> Phone</div>
           <div class="model">
             <label class="control-label">Phone</label>
-            <input type='tel' pattern='\d{3}[\-]\d{3}[\-]\d{4}' placeholder='Format: 999-999-9999' class="ctrl-phonebox form-control" name="phoneField" required> 
+            <input type='tel' class="ctrl-phonebox form-control required customphone"  name="phoneField" required> 
           </div>
         </div>
 
@@ -82,7 +89,7 @@
           <div class="combobox well well-mini"><b></b>Combobox</div>
           <div class="model">
             <label class="control-label">Combobox</label>
-            <select class="ctrl-combobox form-control" name="comboField">
+            <select class="ctrl-combobox form-control" name="comboField" title="Combo field is required.">
               <option  value="option1" required>Option 1</option>
               <option  value="option2">Option 2</option>
               <option  value="option3">Option 3</option>
@@ -98,7 +105,7 @@
               <span style="display:block;"><input type="radio" name="radioField" value="option1" required>Option 1</span>
               <span style="display:block;"><input type="radio" name="radioField" value="option2">Option 2</span>
               <span style="display:block;"><input type="radio" name="radioField" value="option3">Option 3</span>
-              <label for="radioField" class="error" style="display: none;">This field is required.</label>
+              <label for="radioField" class="error" style="display: none;" >Radio field is required.</label>
             </div>
           </div>
         </div>
@@ -111,7 +118,7 @@
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option1" required>Option 1</span>
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option2">Option 2</span>
               <span style="display:block;"><input type="checkbox" name="checkboxField" value="option3">Option 3</span>
-              <label for="checkboxField" class="error" style="display: none;">This field is required.</label>
+              <label for="checkboxField" class="error" style="display: none;" >Checkbox field is required.</label>
             </div>
           </div>
         </div>
@@ -121,7 +128,7 @@
           <div class="model">
             <label class="control-label">Multiselect</label>
             <div >
-              <select name="multiField[]" multiple="multiple" style="width:150px" class="ctrl-selectmultiplelist form-control" required >
+              <select name="multiField[]" multiple="multiple" style="width:150px" class="ctrl-selectmultiplelist form-control" required title="Multi select field is required." >
                 <option  value="option1" >Option 1</option>
                 <option  value="option2">Option 2</option>
                 <option  value="option3">Option 3</option>
@@ -137,7 +144,7 @@
           <div class="model">
             <label class="control-label">Date</label>
             <span class="ctrl-date">MM/DD/YYYY</span>
-            <input type="text" placeholder="Select Date..." class="ctrl-date form-control date-picker" name="dateField" required>
+            <input type="text" placeholder="Select Date..." class="ctrl-date form-control date-picker" name="dateField" required title="Date field is required.">
           </div>
         </div>
 
@@ -145,7 +152,7 @@
           <div class="displaytext well well-mini"><b></b> TextArea</div>
           <div class="model">
             <label class="control-label">TextArea</label>
-            <textarea class="ctrl-textarea form-control" rows="3" required name="textareaField"></textarea>
+            <textarea class="ctrl-textarea form-control" rows="3" required name="textareaField" title="Textarea is required."></textarea>
           </div>
         </div>
 
@@ -155,7 +162,7 @@
           <div class="displayaddress well well-mini"><b></b> Address</div>
           <div class="model">
             <label class="control-label">Shipping & Billing Address</label>
-            <textarea placeholder = "Enter shipping address here..." class="ctrl-address shipping form-control" rows="3" name="shippingField" required></textarea>
+            <textarea placeholder = "Enter shipping address here..." class="ctrl-address shipping form-control" rows="3" name="shippingField" title="Shipping address is required." required></textarea>
             <span style="display:block;"><input class="ctrl-address checkAddress" type="checkbox" name="addressField" >Same?</span>
             <textarea placeholder = "Enter billing address here..." class="ctrl-address billing form-control" rows="3" name="billingField"></textarea>
           </div>
@@ -335,7 +342,7 @@
           <input type="submit" value="upload!"/>
           <br/><br/>
           <div id="loader" style="display:none;">
-            <center><img src="demo_app/images/load.gif" /></center>
+            <center><img src="/demo_app/images/load.gif" /></center>
           </div>
           Message :
           <div id="onsuccessmsg" style="border:5px solid #CCC;padding:15px;"></div>
@@ -349,7 +356,7 @@
 </div>
 
 <span style="position:absolute; padding-right:6px; height:10px;" id="divDeleteTable">
-  <a href="#" onclick="removeTable()"><img src="demo_app/images/delete.png" alt=""></a>
+  <a href="#" onclick="removeTable()"><img src="/demo_app/images/delete.png" alt=""></a>
 </span>
 
 <script>

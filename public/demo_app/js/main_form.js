@@ -127,6 +127,7 @@
   */
   function preview() {
     // Sample preview - opens in a new window by copying content -- use something better in production code
+    errorVal = $('input[name=errorField]:checked').val();
     var selected_content = $("#selected-content").clone();
     selected_content.find("div").each(function(i,o) {
       var obj = $(o)
@@ -163,11 +164,20 @@
     additionalField+= '<legend>'+legend_text+'</legend>';
     dialogContent+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="/responses"  method="post">'
     additionalField+= '<form id="form'+legend_text.slice(0,10)+'" role="form" action="/responses"  method="post">'
+    if(errorVal=="top"){
+      dialogContent+= '<div class="error errorSet"></div>\n';
+      additionalField+= '<div class="error errorSet"></div>\n';
+    }
     dialogContent+= selected_content_html;
     additionalField+= selected_content_html;
+    if(errorVal=="bottom"){
+      dialogContent+= '<div class="error errorSet"></div>\n';
+      additionalField+= '<div class="error errorSet"></div>\n';
+    }
     dialogContent+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     additionalField+= '<script type="text/javascript" src="/demo_app/js/preview.js"></script>\n';
     // dialogContent+= '<script>\n $(".date-picker").focus(function() {var type = $(this).parent().find( "span" ).text();if (typeof type !== "undefined") { if(type=="DD/MM/YYYY") {$(".date-picker").datetimepicker({pickTime: false});} else{$(".date-picker").datetimepicker();}}});\n</script>\n';
+   
     dialogContent+= '</div>\n</form>\n';
     additionalField+= '</div>\n</form>\n';
     additionalField+= '<div class="modal fade" id="formSave"  tabindex="-1" role="dialog" aria-labelledby="formdialog" aria-hidden="true">';
