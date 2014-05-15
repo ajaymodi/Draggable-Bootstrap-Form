@@ -17,3 +17,7 @@ body{
   background-color: blue;
   float: right;
 }
+
+#msg{
+  word-wrap: break-word;
+}
