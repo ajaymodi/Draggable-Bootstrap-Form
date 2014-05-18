@@ -39,7 +39,9 @@ prerequirements - ruby, mongo server
 
 Installation step:-
 1. allow .rvmrc file to setup the system
+
 2. setup config.yml with content of database
+
 3. bundle exec thin -R config.ru start -p PORT
 
 and access the product with server_path/port(http://localhost:4000 as for eg.)
@@ -48,8 +50,11 @@ Check demo on heroku -
 
 http://guarded-thicket-8997.herokuapp.com/
 admin credentials -
+
 username - abc@gmail.com
+
 password - 12345
+
 (Note:- admin have many more previledges)
 
 
