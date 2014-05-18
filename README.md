@@ -38,6 +38,7 @@ Steps to install.
 prerequirements - ruby, mongo server
 
 Installation step:-
+
 1. allow .rvmrc file to setup the system
 
 2. setup config.yml with content of database
