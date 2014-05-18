@@ -44,6 +44,14 @@ Installation step:-
 
 and access the product with server_path/port(http://localhost:4000 as for eg.)
 
+Check demo on heroku - 
+
+http://guarded-thicket-8997.herokuapp.com/
+admin credentials -
+username - abc@gmail.com
+password - 12345
+(Note:- admin have many more previledges)
+
 
 
 
